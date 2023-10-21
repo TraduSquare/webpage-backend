@@ -2,10 +2,11 @@
 
 ROM::SQL.migration do
   change do
-    create_table :platforms do
+    create_table :images do
       primary_key :id
-      column :title, :text, null: false
-      column :handle, :text, null: false
+      column :original_filename, :text, null: false
+      column :filesize, :text, null: false
+      column :filetype, :text, null: false
       column :created_at, DateTime
       column :updated_at, DateTime
     end

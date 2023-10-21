@@ -7,6 +7,8 @@ ROM::SQL.migration do
       column :title, :text, null: false
       column :content, :text, null: false
       column :featured_image, :text, null: false
+      column :created_at, DateTime
+      column :updated_at, DateTime
     end
   end
 end

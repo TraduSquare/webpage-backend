@@ -11,6 +11,8 @@ ROM::SQL.migration do
       column :download, :text
       column :additional_info, :text
       column :buy_link, :text
+      column :created_at, DateTime
+      column :updated_at, DateTime
     end
   end
 end

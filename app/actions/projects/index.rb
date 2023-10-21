@@ -9,7 +9,8 @@ module Backend
         def handle(*, response)
           projects = repo.all
 
-          response.body = projects.to_json
+          response.format = :json
+          halt 202, { message: projects }.to_json
         end
       end
     end

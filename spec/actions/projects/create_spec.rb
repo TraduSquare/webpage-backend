@@ -15,6 +15,17 @@ RSpec.describe 'POST /projects', type: %i[request database] do
     end
   end
 
+  context 'thousands of creations' do
+
+    it 'creates thousands of projects' do
+      (1..10000).each do |i|
+        post '/projects', { project: { title: i.to_s, author: i.to_s } }.to_json, request_headers
+      end
+
+      expect(last_response).to be_created
+    end
+  end
+
   context 'given invalid params' do
     let(:params) do
       { project: { title: nil } }

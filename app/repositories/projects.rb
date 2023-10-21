@@ -10,11 +10,15 @@ module Backend
       end
 
       def find_by_id(id)
-        projects.where(id:).first.to_h
+        projects&.where(id:)&.first&.to_h
       end
 
       def find_by_title(title)
         projects.where(title:).first
+      end
+
+      def projects_with_articles
+        projects.combine(:articles).to_a.map(&:to_h)
       end
     end
   end

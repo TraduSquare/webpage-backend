@@ -9,15 +9,16 @@ module Backend
         params do
           required(:project).hash do
             required(:title).filled(:string)
-            required(:author).filled(:string)
+            required(:description).filled(:string)
           end
         end
 
         def handle(request, response)
-          halt 522, { message: request.params.errors } unless request.params.valid?
+          halt 522, { message: 'Invalid params' } unless request.params.valid?
 
-          project = repo.create(request.params[:project])
-          halt 201, { message: '¡Éxito! Se ha creado el objeto correctamente', content: project.to_h }.to_json
+          halt 500, { message: 'Error creating the project' } unless (project = repo.create(request.params[:project]))
+
+          halt 201, { message: '¡Éxito! Se ha creado el objeto correctamente', data: project.to_h }.to_json
         end
       end
     end

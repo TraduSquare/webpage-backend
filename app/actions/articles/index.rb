@@ -4,8 +4,13 @@ module Backend
   module Actions
     module Articles
       class Index < Backend::Action
+        include Deps[repo: 'repositories.articles']
+
         def handle(*, response)
-          response.body = self.class.name
+          articles = repo.all
+
+          response.format = :json
+          halt 200, { message: articles }.to_json
         end
       end
     end

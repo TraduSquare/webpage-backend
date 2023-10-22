@@ -5,6 +5,7 @@ ROM::SQL.migration do
     create_table :missions do
       primary_key :id
       column :title, :text, null: false
+      column :slug, :text, null: false
       column :description, :text, null: false
       column :email, :text, null: false
       column :featured_image, :text, null: false

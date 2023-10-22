@@ -5,6 +5,7 @@ ROM::SQL.migration do
     create_table :projects do
       primary_key :id
       column :title, :text, null: false
+      column :slug, :text, null: false
       column :technical_info, :text
       column :description, :text
       column :team, :text

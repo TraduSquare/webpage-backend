@@ -5,6 +5,7 @@ ROM::SQL.migration do
     create_table :groups do
       primary_key :id
       column :title, :text, null: false
+      column :slug, :text, null: false
       column :description, :text, null: false
       column :logo, :text, null: false
       column :web_url, :text, null: false

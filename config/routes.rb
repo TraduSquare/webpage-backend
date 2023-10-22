@@ -7,7 +7,7 @@ module Backend
     get '/projects', to: 'projects.index'
     get '/projects/:title', to: 'projects.show'
     put '/projects/:id', to: 'projects.update'
-    delete '/projects/:id', to: 'projects.destroy'
+    delete '/projects/:id', to: 'projects.delete'
     post '/projects', to: 'projects.create'
 
     post '/platforms', to: 'platforms.create'

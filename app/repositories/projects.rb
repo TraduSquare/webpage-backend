@@ -6,15 +6,15 @@ module Backend
       commands :create, update: :by_pk, delete: :by_pk
 
       def all
-        projects.order(:title).to_a.map(&:to_h)
+        projects.order(:created_at).to_a.map(&:to_h)
       end
 
       def find_by_id(id)
         projects&.where(id:)&.first&.to_h
       end
 
-      def find_by_title(title)
-        projects.where(title:).first
+      def find_by_slug(slug)
+        projects.where(slug:).first
       end
 
       def projects_with_articles

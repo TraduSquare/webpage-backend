@@ -3,7 +3,7 @@
 module Backend
   module Actions
     module Projects
-      class Destroy < Backend::Action
+      class Delete < Backend::Action
         include Deps[repo: 'repositories.projects']
 
         params do

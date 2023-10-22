@@ -14,7 +14,7 @@ module Backend
           halt 500, { message: request.params.errors } unless request.params.valid?
           project = repo.find_by_title(request.params[:title])
           response.format = :json
-          halt 201, project.to_h.to_json if project
+          halt 200, project.to_h.to_json if project
           halt 404, { message: 'not_found' }
         end
       end

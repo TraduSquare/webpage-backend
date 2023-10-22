@@ -10,7 +10,7 @@ module Backend
           projects = repo.all
 
           response.format = :json
-          halt 202, { message: projects }.to_json
+          halt 200, { message: projects }.to_json
         end
       end
     end

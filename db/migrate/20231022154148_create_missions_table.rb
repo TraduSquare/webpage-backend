@@ -10,7 +10,6 @@ ROM::SQL.migration do
       column :featured_image, :text, null: false
       column :created_at, DateTime
       column :updated_at, DateTime
-      column :project_id, :integer
       foreign_key :project_id, :projects, on_delete: :cascade
     end   
   end

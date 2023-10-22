@@ -10,7 +10,8 @@ ROM::SQL.migration do
       column :featured_image, :text, null: false
       column :created_at, DateTime
       column :updated_at, DateTime
-    end
-    create_join_table(project_id: :projects, mission_id: :missions)
+      column :project_id, :integer
+      foreign_key :project_id, :projects, on_delete: :cascade
+    end   
   end
 end

@@ -9,7 +9,9 @@ module Backend
         params do
           required(:article).hash do
             required(:title).filled(:string)
+            required(:slug).filled(:string)
             required(:content).filled(:string)
+            required(:featured_image).filled(:string)
           end
         end
 

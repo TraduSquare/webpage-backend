@@ -9,7 +9,7 @@ module Backend
         params do
           required(:project).hash do
             required(:title).filled(:string)
-            required(:description).filled(:string)
+            required(:slug).filled(:string)
           end
         end
 

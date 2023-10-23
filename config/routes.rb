@@ -27,5 +27,11 @@ module Backend
     put '/groups/:id', to: 'groups.update'
     post '/groups', to: 'groups.create'
     delete '/groups/:id', to: 'groups.delete'
+
+    get '/missions', to: 'missions.index'
+    get '/missions/:id', to: 'missions.show'
+    patch '/missions/:id', to: 'missions.update'
+    post '/missions', to: 'missions.create'
+    delete '/missions/:id', to: 'missions.delete'
   end
 end

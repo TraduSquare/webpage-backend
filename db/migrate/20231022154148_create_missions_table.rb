@@ -12,6 +12,6 @@ ROM::SQL.migration do
       column :created_at, DateTime
       column :updated_at, DateTime
       foreign_key :project_id, :projects, on_delete: :cascade
-    end   
+    end
   end
 end

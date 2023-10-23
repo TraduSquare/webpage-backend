@@ -4,8 +4,8 @@ module Backend
       class PlatformsProjects < ROM::Relation[:sql]
         schema(:platforms_projects, infer: true) do
           associations do
-            belongs_to :platforms
-            belongs_to :projects
+            belongs_to :platforms, on_delete: :cascade
+            belongs_to :projects, on_delete: :cascade
           end
         end
       end

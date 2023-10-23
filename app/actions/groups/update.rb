@@ -4,8 +4,21 @@ module Backend
   module Actions
     module Groups
       class Update < Backend::Action
-        def handle(*, response)
-          response.body = self.class.name
+        include Deps[repo: 'repositories.groups']
+
+        params do
+          required(:id).value(:integer)
+          required(:group).hash
+        end
+
+        def handle(request, _response)
+          group_id = request.params[:id]
+          halt 404, { message: 'No existe el grupo' } unless repo.find_by_id(group_id)
+
+          halt 522, { message: request.params.errors } unless request.params.valid?
+
+          group = repo.update(group_id, request.params[:group])
+          halt 200, { message: '¡Éxito! Se ha modificado el grupo correctamente', content: group.to_h }.to_json
         end
       end
     end

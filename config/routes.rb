@@ -21,5 +21,11 @@ module Backend
     put '/articles/:id', to: 'articles.update'
     post '/articles', to: 'articles.create'
     delete '/articles/:id', to: 'articles.delete'
+
+    get '/groups', to: 'groups.index'
+    get '/groups/:slug', to: 'groups.show'
+    put '/groups/:id', to: 'groups.update'
+    post '/groups', to: 'groups.create'
+    delete '/groups/:id', to: 'groups.delete'
   end
 end

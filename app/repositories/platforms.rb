@@ -13,8 +13,8 @@ module Backend
         platforms&.where(id:)&.first&.to_h
       end
 
-      def find_by_title(title)
-        platforms.where(title:).first
+      def find_by_slug(slug)
+        platforms.where(slug:).first
       end
     end
   end

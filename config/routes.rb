@@ -7,19 +7,19 @@ module Backend
     get '/projects', to: 'projects.index'
     get '/projects/:slug', to: 'projects.show'
     put '/projects/:id', to: 'projects.update'
-    delete '/projects/:id', to: 'projects.delete'
     post '/projects', to: 'projects.create'
+    delete '/projects/:id', to: 'projects.delete'
 
-    post '/platforms', to: 'platforms.create'
-    put '/platforms/:id', to: 'platforms.update'
-    get '/platforms/:id', to: 'platforms.show'
     get '/platforms', to: 'platforms.index'
+    get '/platforms/:slug', to: 'platforms.show'
+    put '/platforms/:id', to: 'platforms.update'
+    post '/platforms', to: 'platforms.create'
     delete '/platforms/:id', to: 'platforms.delete'
 
-    delete '/articles/:id', to: 'articles.delete'
+    get '/articles', to: 'articles.index'
     get '/articles/:slug', to: 'articles.show'
     put '/articles/:id', to: 'articles.update'
     post '/articles', to: 'articles.create'
-    get '/articles', to: 'articles.index'
+    delete '/articles/:id', to: 'articles.delete'
   end
 end

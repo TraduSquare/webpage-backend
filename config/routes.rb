@@ -29,8 +29,8 @@ module Backend
     delete '/groups/:id', to: 'groups.delete'
 
     get '/missions', to: 'missions.index'
-    get '/missions/:id', to: 'missions.show'
-    patch '/missions/:id', to: 'missions.update'
+    get '/missions/:slug', to: 'missions.show'
+    put '/missions/:id', to: 'missions.update'
     post '/missions', to: 'missions.create'
     delete '/missions/:id', to: 'missions.delete'
   end

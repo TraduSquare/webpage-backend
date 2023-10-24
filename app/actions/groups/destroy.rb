@@ -3,7 +3,7 @@
 module Backend
   module Actions
     module Groups
-      class Delete < Backend::Action
+      class Destroy < Backend::Action
         include Deps[repo: 'repositories.groups']
 
         params do
@@ -12,7 +12,7 @@ module Backend
 
         def handle(request, response)
           group_id = request.params[:id]
-          halt 522, { message: request.params.errors } unless request.params.valid?
+          halt 422, { message: request.params.errors } unless request.params.valid?
           repo.delete(group_id)
           halt 200, { message: '¡Éxito! Se ha eliminado el grupo correctamente' }
         end

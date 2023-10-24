@@ -15,7 +15,7 @@ module Backend
         end
 
         def handle(request, response)
-          halt 522, { message: 'Invalid params' } unless request.params.valid?
+          halt 422, { message: 'Invalid params' } unless request.params.valid?
 
           halt 500, { message: 'Error creating the platform' } unless (platform = repo.create(request.params[:platform]))
 

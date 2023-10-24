@@ -3,7 +3,7 @@
 RSpec.describe Backend::Actions::Platforms::Update do
   let(:params) { Hash[] }
 
-  it "works" do
+  it 'works' do
     response = subject.call(params)
     expect(response).to be_successful
   end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Backend::Actions::Platforms::Delete do
+RSpec.describe Backend::Actions::Missions::Destroy do
   let(:params) { Hash[] }
 
   it "works" do

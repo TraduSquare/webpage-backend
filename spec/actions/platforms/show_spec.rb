@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Backend::Actions::Projects::New do
+RSpec.describe Backend::Actions::Platforms::Show do
   let(:params) { Hash[] }
 
   it "works" do

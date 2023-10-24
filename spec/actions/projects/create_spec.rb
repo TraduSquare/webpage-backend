@@ -5,7 +5,9 @@ RSpec.describe 'POST /projects', type: %i[request database] do
 
   context 'given valid params' do
     let(:params) do
-      { project: { title: 'Practical Object-Oriented Design in Ruby', author: 'Sandi Metz' } }
+      { project: { title: 'MUAJAJAJAJA3',
+                   slug: 'muajajajajaj',
+                   description: 'a' } }
     end
 
     it 'creates a project' do
@@ -15,9 +17,19 @@ RSpec.describe 'POST /projects', type: %i[request database] do
     end
   end
 
+  context 'hundreds of creations' do
+    it 'creates thousands of projects' do
+      (1..100).each do |i|
+        post '/projects', { project: { title: i.to_s, slug: i.to_s, description: i.to_s } }.to_json, request_headers
+      end
+
+      expect(last_response).to be_created
+    end
+  end
+
   context 'given invalid params' do
     let(:params) do
-      { project: { title: nil } }
+      { project: { title: nil, slug: nil, description: nil } }
     end
 
     it 'returns 422 unprocessable' do

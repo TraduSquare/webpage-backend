@@ -12,9 +12,9 @@ module Backend
 
         def handle(request, response)
           project_id = request.params[:id]
-          halt 522, { message: request.params.errors } unless request.params.valid?
+          halt 422, { message: request.params.errors } unless request.params.valid?
           repo.delete(project_id)
-          halt 201, { message: '¡Éxito! Se ha eliminado el objeto correctamente' }
+          halt 200, { message: '¡Éxito! Se ha eliminado el objeto correctamente' }
         end
       end
     end

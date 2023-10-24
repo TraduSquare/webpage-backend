@@ -35,6 +35,6 @@ jobs:
         ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
       env:
-        DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        database_url: ${{ secrets.DATABASE_URL }}
     - name: Run tests
       run: bundle exec rspec spec/actions/projects/create_spec.rb

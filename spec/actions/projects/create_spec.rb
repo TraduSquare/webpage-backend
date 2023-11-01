@@ -18,7 +18,7 @@ RSpec.describe 'POST /projects', type: %i[request database] do
   end
 
   context 'hundreds of creations' do
-    it 'creates thousands of projects' do
+    it 'creates hundreds of projects' do
       (1..100).each do |i|
         post '/projects', { project: { title: i.to_s, slug: i.to_s, description: i.to_s } }.to_json, request_headers
       end

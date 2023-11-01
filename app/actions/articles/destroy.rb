@@ -11,9 +11,9 @@ module Backend
         end
 
         def handle(request, response)
-          halt 422, { message: request.params.errors } unless request.params.valid?
+          halt 422, { message: request.params.errors }.to_json unless request.params.valid?
           repo.delete(request.params[:id])
-          halt 200, { message: '¡Éxito! Se ha eliminado el objeto correctamente' }
+          halt 200, { message: '¡Éxito! Se ha eliminado el objeto correctamente' }.to_json
         end
       end
     end

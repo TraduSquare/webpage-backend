@@ -1,10 +1,55 @@
 # frozen_string_literal: true
 
-RSpec.describe Backend::Actions::Projects::Show do
-  let(:params) { Hash[] }
+RSpec.describe 'GET /projects/:id', type: %i[request database] do
+  let(:projects) { app['persistence.rom'].relations[:projects] }
 
-  it "works" do
-    response = subject.call(params)
-    expect(response).to be_successful
+  context 'when a project matches the given slug' do
+    let!(:project_slug) do
+      projects.insert(title: 'MUAJAJAJAJA3', slug: 'muajajajajaj', description: 'a')
+    end
+
+    it 'renders the project' do
+      get "/projects/#{projects.first[:slug]}"
+
+      expect(last_response).to be_successful
+      expect(last_response.content_type).to eq('application/json; charset=utf-8')
+
+      response_body = JSON.parse(last_response.body)
+
+      expect(response_body).to include(
+        'title' => 'MUAJAJAJAJA3', 'slug' => 'muajajajajaj', 'description' => 'a'
+      )
+    end
+
+    it 'renders 1 project 100 times' do
+      (1..100).each do
+        get "/projects/#{projects.first[:slug]}"
+      end
+
+      expect(last_response).to be_successful
+      expect(last_response.content_type).to eq('application/json; charset=utf-8')
+
+      response_body = JSON.parse(last_response.body)
+
+      expect(response_body).to include(
+        'title' => 'MUAJAJAJAJA3', 'slug' => 'muajajajajaj', 'description' => 'a'
+      )
+    end
+  end
+
+  context 'when no project matches the given id' do
+    it 'returns not found' do
+      get "/projects/jejejeje"
+
+      expect(last_response).to be_not_found
+      expect(last_response.content_type).to eq('application/json; charset=utf-8')
+
+      response_body = JSON.parse(last_response.body)
+      
+
+      expect(response_body).to eq(
+        'message' => 'not_found'
+      )
+    end
   end
 end

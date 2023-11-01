@@ -13,9 +13,9 @@ module Backend
 
         def handle(request, _response)
           project_id = request.params[:id]
-          halt 404, { message: 'No existe el proyecto' } unless repo.find_by_id(project_id)
+          halt 404, { message: 'No existe el proyecto' }.to_json unless repo.find_by_id(project_id)
 
-          halt 422, { message: request.params.errors } unless request.params.valid?
+          halt 422, { message: request.params.errors }.to_json unless request.params.valid?
 
           project = repo.update(project_id, request.params[:project])
           halt 200, { message: '¡Éxito! Se ha modificadoo el objeto correctamente', content: project.to_h }.to_json

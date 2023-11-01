@@ -16,10 +16,12 @@ module Backend
           end
         end
 
-        def handle(request, response)
-          halt 422, { message: 'Invalid params' } unless request.params.valid?
+        def handle(request, _response)
+          halt 422, { message: 'Invalid params' }.to_json unless request.params.valid?
 
-          halt 500, { message: 'Error creating the mission' } unless (mission = repo.create(request.params[:mission]))
+          unless (mission = repo.create(request.params[:mission]))
+            halt 500, { message: 'Error creating the mission' }.to_json
+          end
 
           halt 201, { message: '¡Éxito! Se ha creado el objeto correctamente', data: mission.to_h }.to_json
         end

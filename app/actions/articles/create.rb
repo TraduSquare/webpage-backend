@@ -16,9 +16,9 @@ module Backend
         end
 
         def handle(request, response)
-          halt 422, { message: 'Invalid params' } unless request.params.valid?
+          halt 422, { message: 'Invalid params' }.to_json unless request.params.valid?
 
-          halt 500, { message: 'Error creating the article' } unless (article = repo.create(request.params[:article]))
+          halt 500, { message: 'Error creating the article' }.to_json unless (article = repo.create(request.params[:article]))
 
           halt 201, { message: '¡Éxito! Se ha creado el objeto correctamente', data: article.to_h }.to_json
         end

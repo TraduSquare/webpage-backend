@@ -13,9 +13,9 @@ module Backend
 
         def handle(request, _response)
           platform_id = request.params[:id]
-          halt 404, { message: 'No existe el artículo' } unless repo.find_by_id(platform_id)
+          halt 404, { message: 'No existe el artículo' }.to_json unless repo.find_by_id(platform_id)
 
-          halt 422, { message: request.params.errors } unless request.params.valid?
+          halt 422, { message: request.params.errors }.to_json unless request.params.valid?
 
           platform = repo.update(platform_id, request.params[:platform])
           halt 200, { message: '¡Éxito! Se ha modificado el objeto correctamente', content: platform.to_h }.to_json

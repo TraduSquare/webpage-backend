@@ -12,9 +12,9 @@ module Backend
 
         def handle(request, response)
           group_id = request.params[:id]
-          halt 422, { message: request.params.errors } unless request.params.valid?
+          halt 422, { message: request.params.errors }.to_json unless request.params.valid?
           repo.delete(group_id)
-          halt 200, { message: '¡Éxito! Se ha eliminado el grupo correctamente' }
+          halt 200, { message: '¡Éxito! Se ha eliminado el grupo correctamente' }.to_json
         end
       end
     end

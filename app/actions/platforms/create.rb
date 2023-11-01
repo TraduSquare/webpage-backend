@@ -15,9 +15,9 @@ module Backend
         end
 
         def handle(request, response)
-          halt 422, { message: 'Invalid params' } unless request.params.valid?
+          halt 422, { message: 'Invalid params' }.to_json unless request.params.valid?
 
-          halt 500, { message: 'Error creating the platform' } unless (platform = repo.create(request.params[:platform]))
+          halt 500, { message: 'Error creating the platform' }.to_json unless (platform = repo.create(request.params[:platform]))
 
           halt 201, { message: '¡Éxito! Se ha creado el objeto correctamente', data: platform.to_h }.to_json
         end

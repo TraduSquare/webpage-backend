@@ -22,7 +22,7 @@ RSpec.describe 'GET /projects/:id', type: %i[request database] do
     end
 
     it 'renders 1 project 100 times' do
-      (1..100).each do
+      100.times do
         get "/projects/#{projects.first[:slug]}"
       end
 

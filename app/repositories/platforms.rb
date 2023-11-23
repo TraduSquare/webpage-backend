@@ -10,11 +10,11 @@ module Backend
       end
 
       def find_by_id(id)
-        platforms&.where(id:)&.first&.to_h
+        platforms.where(id:)&.first&.to_h
       end
 
       def find_by_slug(slug)
-        platforms.where(slug:).first
+        platforms.where(slug:)&.first&.to_h
       end
     end
   end

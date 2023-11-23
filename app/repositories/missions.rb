@@ -10,11 +10,11 @@ module Backend
       end
 
       def find_by_id(id)
-        missions&.where(id:)&.first&.to_h
+        missions.where(id:)&.first&.to_h
       end
 
       def find_by_slug(slug)
-        missions.where(slug:).first
+        missions.where(slug:)&.first&.to_h
       end
 
       def missions_with_projects

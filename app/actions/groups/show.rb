@@ -14,7 +14,7 @@ module Backend
           halt 500, { message: request.params.errors }.to_json unless request.params.valid?
           group = repo.find_by_slug(request.params[:slug])
           response.format = :json
-          halt 200, group.to_h.to_json if group
+          halt 200, group.to_json if group
           halt 404, { message: 'Group not found' }.to_json
         end
       end

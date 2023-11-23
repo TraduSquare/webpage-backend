@@ -14,7 +14,7 @@ module Backend
           halt 500, { message: request.params.errors }.to_json unless request.params.valid?
           platform = repo.find_by_slug(request.params[:slug])
           response.format = :json
-          halt 200, platform.to_h.to_json if platform
+          halt 200, platform.to_json if platform
           halt 404, { message: 'not_found' }.to_json
         end
       end

@@ -10,11 +10,11 @@ module Backend
       end
 
       def find_by_id(id)
-        articles&.where(id:)&.first&.to_h
+        articles.where(id:)&.first&.to_h
       end
 
       def find_by_slug(slug)
-        articles.where(slug:).first
+        articles.where(slug:)&.first&.to_h
       end
 
       def articles_with_projects

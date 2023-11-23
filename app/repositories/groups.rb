@@ -6,19 +6,19 @@ module Backend
       commands :create, update: :by_pk, delete: :by_pk
 
       def all
-        groups.order(:created_at).to_a.map(&:to_h)
+        grpups.order(:created_at).to_a.map(&:to_h)
       end
 
       def find_by_id(id)
-        groups&.where(id:)&.first&.to_h
+        grpups.where(id:)&.first&.to_h
       end
 
       def find_by_slug(slug)
-        groups.where(slug:).first
+        grpups.where(slug:)&.first&.to_h
       end
 
       def groups_with_projects
-        groups.combine(:projects).to_a.map(&:to_h)
+        grpups.combine(:projects).to_a.map(&:to_h)
       end
     end
   end

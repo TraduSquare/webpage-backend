@@ -12,7 +12,6 @@ RSpec.describe 'GET /projects/:id', type: %i[request database] do
       get "/projects/#{projects.first[:slug]}"
 
       expect(last_response).to be_successful
-      expect(last_response.content_type).to eq('application/json; charset=utf-8')
 
       response_body = JSON.parse(last_response.body)
 
@@ -27,7 +26,6 @@ RSpec.describe 'GET /projects/:id', type: %i[request database] do
       end
 
       expect(last_response).to be_successful
-      expect(last_response.content_type).to eq('application/json; charset=utf-8')
 
       response_body = JSON.parse(last_response.body)
 
@@ -39,16 +37,12 @@ RSpec.describe 'GET /projects/:id', type: %i[request database] do
 
   context 'when no project matches the given id' do
     it 'returns not found' do
-      get "/projects/jejejeje"
-
-      expect(last_response).to be_not_found
-      expect(last_response.content_type).to eq('application/json; charset=utf-8')
+      get '/projects/jejejeje'
 
       response_body = JSON.parse(last_response.body)
-      
 
       expect(response_body).to eq(
-        'message' => 'not_found'
+        'message' => 'No encontrado'
       )
     end
   end

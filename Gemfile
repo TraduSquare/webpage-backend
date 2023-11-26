@@ -7,7 +7,7 @@ gem 'hanami-api'
 gem 'hanami-controller', '~> 2.0'
 gem 'hanami-router', '~> 2.0'
 gem 'hanami-validations', '~> 2.0'
-
+gem 'jay_doubleu_tee'
 gem 'pg'
 gem 'rom', '~> 5.3'
 gem 'rom-sql', '~> 3.6'
@@ -15,6 +15,7 @@ gem 'rom-sql', '~> 3.6'
 gem 'dry-types', '~> 1.0', '>= 1.6.1'
 gem 'puma'
 gem 'rake'
+gem 'uuid7'
 
 group :development, :test do
   gem 'dotenv'

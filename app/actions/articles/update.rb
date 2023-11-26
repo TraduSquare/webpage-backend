@@ -6,6 +6,8 @@ module Backend
       class Update < Backend::Action
         include Deps[repo: 'repositories.articles']
 
+        before :validate_params
+
         params do
           required(:id).value(:integer)
           required(:article).hash
@@ -13,11 +15,8 @@ module Backend
 
         def handle(request, _response)
           article_id = request.params[:id]
-          halt 404, { message: 'No existe el artículo' }.to_json unless repo.find_by_id(article_id)
-
-          halt 422, { message: request.params.errors }.to_json unless request.params.valid?
-
-          article = repo.update(article_id, request.params[:article])
+          handle_not_found unless repo.find_by_id(article_id)
+          handle_server_error unless (article = repo.update(article_id, request.params[:article]))
           halt 200, { message: '¡Éxito! Se ha modificado el objeto correctamente', content: article.to_h }.to_json
         end
       end

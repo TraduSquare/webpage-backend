@@ -6,7 +6,7 @@ require 'uuid7'
 
 module Backend
   class Action < Hanami::Action
-    config.handle_exception ROM::TupleCountMismatchError => :handle_not_found
+    config.handle_exception ROM::TupleCountMismatchError => :handle_server_error
 
     private
 

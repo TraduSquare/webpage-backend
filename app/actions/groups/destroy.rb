@@ -13,7 +13,7 @@ module Backend
         end
 
         def handle(request, _response)
-          repo.delete(request.params[:id])
+          handle_server_error unless repo.delete(request.params[:id])
           handle_success('¡Éxito! Se ha eliminado el grupo correctamente')
         end
       end

@@ -13,7 +13,7 @@ module Backend
         end
 
         def handle(request, _response)
-          repo.delete(request.params[:id])
+          handle_server_error unless repo.delete(request.params[:id])
           halt 200, { message: '¡Éxito! Se ha eliminado el objeto correctamente' }.to_json
         end
       end

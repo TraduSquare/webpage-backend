@@ -9,13 +9,6 @@ module Backend
         platforms.order(:title).to_a.map(&:to_h)
       end
 
-      def find_by_id(id)
-        platforms.where(id:)&.first&.to_h
-      end
-
-      def find_by_slug(slug)
-        platforms.where(slug:)&.first&.to_h
-      end
     end
   end
 end

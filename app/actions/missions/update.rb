@@ -15,7 +15,7 @@ module Backend
 
         def handle(request, _response)
           mission_id = request.params[:id]
-          handle_not_found unless repo.find_by_id(mission_id)
+          handle_not_found unless repo.find(mission_id)
 
           handle_exception unless (mission = repo.update(mission_id, request.params[:mission]))
 

@@ -13,7 +13,7 @@ module Backend
         end
 
         def handle(request, response)
-          handle_not_found unless (article = repo.find_by_slug(request.params[:slug]))
+          handle_not_found unless (article = repo.find_by(slug: request.params[:slug]))
           response.format = :json
           handle_success(article.to_json)
         end

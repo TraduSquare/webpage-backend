@@ -13,7 +13,7 @@ module Backend
         end
 
         def handle(request, _response)
-          handle_not_found unless (project = repo.find_by_slug(request.params[:slug]))
+          handle_not_found unless (project = repo.find_by(slug: request.params[:slug]))
           handle_success(project)
         end
       end

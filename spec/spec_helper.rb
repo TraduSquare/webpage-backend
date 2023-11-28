@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 require 'pathname'
+require 'simplecov'
+
+SimpleCov.start
 SPEC_ROOT = Pathname(__dir__).realpath.freeze
 
 ENV['HANAMI_ENV'] ||= 'test'

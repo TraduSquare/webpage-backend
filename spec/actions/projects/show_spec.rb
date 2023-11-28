@@ -3,12 +3,12 @@
 RSpec.describe 'GET /projects/:id', type: %i[request database] do
   let(:projects) { app['persistence.rom'].relations[:projects] }
 
-  context 'when a project matches the given slug' do
+  context 'returns a project given info' do
     let!(:project_slug) do
       projects.insert(title: 'MUAJAJAJAJA3', slug: 'muajajajajaj', description: 'a')
     end
 
-    it 'renders the project' do
+    it 'renders the project with slug' do
       get "/projects/#{projects.first[:slug]}"
 
       expect(last_response).to be_successful
@@ -19,6 +19,12 @@ RSpec.describe 'GET /projects/:id', type: %i[request database] do
         'title' => 'MUAJAJAJAJA3', 'slug' => 'muajajajajaj', 'description' => 'a'
       )
     end
+
+    # it 'renders the project with id' do
+    #   expect(Backend::Repositories::Projects.find_by_id(projects.first[:id])).to include(
+    #     'id' => projects.first[:id]
+    #   )
+    # end
 
     it 'renders 1 project 100 times' do
       100.times do

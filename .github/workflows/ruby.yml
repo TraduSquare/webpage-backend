@@ -35,8 +35,9 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby-version }}
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-        env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      - name: Create .env file
+        run : |
+          echo "${{ secrets.ENV_FILE }}" > .env
       - name: Run tests
         run: bundle exec rspec spec/actions/projects/create_spec.rb
       - name: Upload coverage reports to Codecov

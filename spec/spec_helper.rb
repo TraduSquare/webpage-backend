@@ -3,7 +3,13 @@
 require 'pathname'
 require 'simplecov'
 
-SimpleCov.start
+SimpleCov.start do
+  enable_coverage :branch
+  primary_coverage :branch
+  minimum_coverage line: 90, branch: 80
+  refuse_coverage_drop :line, :branch
+  add_filter %r{^/spec/}
+end
 SPEC_ROOT = Pathname(__dir__).realpath.freeze
 
 ENV['HANAMI_ENV'] ||= 'test'

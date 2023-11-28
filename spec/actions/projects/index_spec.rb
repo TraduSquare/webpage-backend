@@ -28,7 +28,7 @@ RSpec.describe 'GET /projects', type: %i[request database] do
 
   context 'hundreds of projects' do
     it 'Calls index 100 times' do
-      1000.times do
+      100.times do
         get '/projects'
       end
 

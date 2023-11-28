@@ -8,7 +8,7 @@ module Backend
 
         def handle(*, response)
           response.format = :json
-          halt 201, { message: repo.all }.to_json
+          handle_success(repo.all)
         end
       end
     end

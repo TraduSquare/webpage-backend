@@ -6,16 +6,16 @@ module Backend
       class Show < Backend::Action
         include Deps[repo: 'repositories.platforms']
 
+        before :validate_params
+
         params do
           required(:slug).value(:string)
         end
 
         def handle(request, response)
-          halt 500, { message: request.params.errors }.to_json unless request.params.valid?
-          platform = repo.find_by_slug(request.params[:slug])
+          handle_not_found unless (platform = repo.find_by_slug(request.params[:slug]))
           response.format = :json
-          halt 200, platform.to_json if platform
-          halt 404, { message: 'not_found' }.to_json
+          handle_success(platform)
         end
       end
     end

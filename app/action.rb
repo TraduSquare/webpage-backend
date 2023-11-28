@@ -18,8 +18,8 @@ module Backend
       halt 500, { message: 'Algo ha salido mal, probablemente sea culpa nuestra' }.to_json
     end
 
-    def handle_success(message)
-      halt 500, { message: }.to_json
+    def handle_success(message, code = 200)
+      halt code, message.to_json
     end
 
     def validate_params(request, _response)

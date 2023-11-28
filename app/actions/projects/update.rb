@@ -17,7 +17,7 @@ module Backend
           project_id = request.params[:id]
           handle_not_found unless repo.find_by_id(project_id)
           handle_server_error unless (project = repo.update(project_id, request.params[:project]))
-          halt 200, { message: 'Se ha actualizado el projecto con éxito', content: project.to_h }.to_json
+          handle_success(project.to_h)
         end
       end
     end

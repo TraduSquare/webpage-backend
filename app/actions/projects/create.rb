@@ -19,7 +19,7 @@ module Backend
           request.params[:project][:uuid] = generate_uuid
           handle_server_error unless (project = repo.create(request.params[:project]))
 
-          halt 201, { message: '¡Éxito! Se ha creado el objeto correctamente', data: project.to_h }.to_json
+          handle_success(project.to_h, 201)
         end
       end
     end

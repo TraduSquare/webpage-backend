@@ -7,10 +7,8 @@ module Backend
         include Deps[repo: 'repositories.missions']
 
         def handle(*, response)
-          missions = repo.all
-
           response.format = :json
-          halt 200, { message: missions }.to_json
+          handle_success(repo.all)
         end
       end
     end

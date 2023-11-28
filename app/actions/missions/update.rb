@@ -6,6 +6,8 @@ module Backend
       class Update < Backend::Action
         include Deps[repo: 'repositories.missions']
 
+        before :validate_params
+
         params do
           required(:id).value(:integer)
           required(:mission).hash
@@ -13,12 +15,11 @@ module Backend
 
         def handle(request, _response)
           mission_id = request.params[:id]
-          halt 404, { message: 'No existe el proyecto' }.to_json unless repo.find_by_id(mission_id)
+          handle_not_found unless repo.find_by_id(mission_id)
 
-          halt 422, { message: request.params.errors }.to_json unless request.params.valid?
+          handle_exception unless (mission = repo.update(mission_id, request.params[:mission]))
 
-          mission = repo.update(mission_id, request.params[:mission])
-          halt 200, { message: '¡Éxito! Se ha modificadoo el objeto correctamente', content: mission.to_h }.to_json
+          handle_success(mission.to_h)
         end
       end
     end

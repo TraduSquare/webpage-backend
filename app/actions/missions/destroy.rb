@@ -6,15 +6,15 @@ module Backend
       class Destroy < Backend::Action
         include Deps[repo: 'repositories.missions']
 
+        before :validate_params
+
         params do
           required(:id).value(:integer)
         end
 
-        def handle(request, response)
-          mission_id = request.params[:id]
-          halt 422, { message: request.params.errors }.to_json unless request.params.valid?
-          repo.delete(mission_id)
-          halt 200, { message: '¡Éxito! Se ha eliminado el objeto correctamente' }.to_json
+        def handle(request, _response)
+          handle_server_error unless repo.delete(request.params[:id])
+          handle_success('¡Éxito! Se ha eliminado el objeto correctamente')
         end
       end
     end

@@ -28,8 +28,9 @@ RSpec.describe 'GET /projects', type: %i[request database] do
 
   context 'hundreds of projects' do
     it 'Calls index 100 times' do
-      100.times do
+      1000.times do
         get '/projects'
+        p JSON.parse(last_response.body)
       end
 
       response_body = JSON.parse(last_response.body)

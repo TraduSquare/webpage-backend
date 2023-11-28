@@ -14,7 +14,7 @@ module Backend
 
         def handle(request, _response)
           handle_not_found unless (project = repo.find_by_slug(request.params[:slug]))
-          halt 200, project.to_json
+          handle_success(project)
         end
       end
     end

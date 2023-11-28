@@ -6,6 +6,8 @@ module Backend
       class Create < Backend::Action
         include Deps[repo: 'repositories.platforms']
 
+        before :validate_params
+
         params do
           required(:platform).hash do
             required(:title).filled(:string)
@@ -14,12 +16,10 @@ module Backend
           end
         end
 
-        def handle(request, response)
-          halt 422, { message: 'Invalid params' }.to_json unless request.params.valid?
+        def handle(request, _response)
+          handle_server_error unless (platform = repo.create(request.params[:platform]))
 
-          halt 500, { message: 'Error creating the platform' }.to_json unless (platform = repo.create(request.params[:platform]))
-
-          halt 201, { message: '¡Éxito! Se ha creado el objeto correctamente', data: platform.to_h }.to_json
+          handle_success(platform.to_h, 201)
         end
       end
     end

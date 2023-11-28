@@ -6,6 +6,8 @@ module Backend
       class Create < Backend::Action
         include Deps[repo: 'repositories.missions']
 
+        before :validate_params
+
         params do
           required(:mission).hash do
             required(:title).filled(:string)
@@ -17,13 +19,9 @@ module Backend
         end
 
         def handle(request, _response)
-          halt 422, { message: 'Invalid params' }.to_json unless request.params.valid?
+          handle_server_error unless (mission = repo.create(request.params[:mission]))
 
-          unless (mission = repo.create(request.params[:mission]))
-            halt 500, { message: 'Error creating the mission' }.to_json
-          end
-
-          halt 201, { message: '¡Éxito! Se ha creado el objeto correctamente', data: mission.to_h }.to_json
+          handle_success(mission.to_h, 201)
         end
       end
     end

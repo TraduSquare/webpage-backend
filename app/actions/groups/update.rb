@@ -17,7 +17,7 @@ module Backend
           group_id = request.params[:id]
           handle_not_found unless repo.find_by_id(group_id)
           handle_server_error unless (group = repo.update(group_id, request.params[:group]))
-          halt 200, { message: '¡Éxito! Se ha modificado el grupo correctamente', content: group.to_h }.to_json
+          handle_success(group.to_h)
         end
       end
     end

@@ -22,23 +22,24 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        ruby-version: ['3.0']
+        ruby-version: ['3.2.2']
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Ruby
-    # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
-    # change this to (see https://github.com/ruby/setup-ruby#versioning):
-    # uses: ruby/setup-ruby@v1
-      uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
-      with:
-        ruby-version: ${{ matrix.ruby-version }}
-        bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-      env:
-        database_url: ${{ secrets.DATABASE_URL }}
-    - name: Run tests
-      run: bundle exec rspec spec/actions/projects/create_spec.rb
-    - name: Upload coverage reports to Codecov
-      uses: codecov/codecov-action@v3
-      env:
-        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Set up Ruby
+      # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
+      # change this to (see https://github.com/ruby/setup-ruby#versioning):
+      # uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
+        with:
+          ruby-version: ${{ matrix.ruby-version }}
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      - name: Run tests
+        run: bundle exec rspec spec/actions/projects/create_spec.rb
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

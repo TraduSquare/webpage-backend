@@ -33,5 +33,6 @@ module Backend
     put '/missions/:id', to: 'missions.update'
     post '/missions', to: 'missions.create'
     delete '/missions/:id', to: 'missions.destroy'
+    get '/api/generate_token', to: 'api.generate_token'
   end
 end

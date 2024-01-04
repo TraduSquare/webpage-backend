@@ -7,7 +7,7 @@ module Backend
     include Deps[container: 'persistence.rom']
 
     def find(id)
-      where(id:)&.first&.to_h
+      @root.where(id:)&.first&.to_h
     end
 
     def find_by(*args)

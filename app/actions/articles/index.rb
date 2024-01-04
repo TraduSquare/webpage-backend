@@ -4,11 +4,11 @@ module Backend
   module Actions
     module Articles
       class Index < Backend::Action
-        include Deps[repo: 'repositories.articles']
+        include Deps[articles: 'repositories.articles']
 
         def handle(*, response)
           response.format = :json
-          handle_success(repo.all)
+          handle_success(articles.last)
         end
       end
     end

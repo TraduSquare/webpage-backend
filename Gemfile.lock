@@ -97,6 +97,7 @@ GEM
       dry-schema (>= 1.12, < 2)
       zeitwerk (~> 2.6)
     ffi (1.16.3)
+    ffi (1.16.3-x64-mingw-ucrt)
     formatador (1.1.0)
     guard (2.18.1)
       formatador (>= 0.2.4)
@@ -191,6 +192,7 @@ GEM
       ast (~> 2.4.1)
       racc
     pg (1.5.4)
+    pg (1.5.4-x64-mingw-ucrt)
     pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -278,9 +280,11 @@ GEM
     uniform_notifier (1.16.0)
     uuid7 (0.2.0)
       zeitwerk (~> 2.4)
+    wdm (0.1.1)
     zeitwerk (2.6.12)
 
 PLATFORMS
+  x64-mingw-ucrt
   x86_64-linux
 
 DEPENDENCIES
@@ -306,6 +310,7 @@ DEPENDENCIES
   rubocop
   simplecov
   uuid7
+  wdm (>= 0.1.0)
 
 BUNDLED WITH
    2.4.10

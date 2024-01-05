@@ -13,8 +13,11 @@ module Backend
         articles.combine(:projects).to_a.map(&:to_h)
       end
 
-      def last(limit)
-        articles.order(articles[:created_at].qualified.desc).limit(limit).to_a.map(&:to_h)
+      def last(limit = nil, order_by = :created_at, direction = :asc)
+        query = articles
+        query = query.limit(limit) if limit
+        query = query.order(order_by)
+        query.combine(:comments, :projects).to_a.map(&:to_h)
       end
 
       def show_with_comments_and_projects(slug)

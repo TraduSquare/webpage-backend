@@ -6,6 +6,5 @@ module Backend
     #
     # setting :my_flag, default: false, constructor: Types::Params::Bool
     setting :database_url, constructor: Types::String
-    setting :jwt_public_key, constructor: Types::String
   end
 end

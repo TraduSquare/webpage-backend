@@ -6,7 +6,7 @@ module Backend
       class Show < Backend::Action
         include Deps[repo: 'repositories.projects']
 
-        before :validate_params
+        before :authenticate_call, :validate_params
 
         params do
           required(:slug).value(:string)

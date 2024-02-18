@@ -33,11 +33,12 @@ module Backend
     put '/missions/:id', to: 'missions.update'
     post '/missions', to: 'missions.create'
     delete '/missions/:id', to: 'missions.destroy'
-    get '/api/generate_token', to: 'api.generate_token'
     post '/comments', to: 'comments.create'
     delete '/comments/:id', to: 'comments.destroy'
     get '/comments', to: 'comments.index'
     get '/comments/:id', to: 'comments.show'
     put '/comments/:id', to: 'comments.update'
+    get '/api/sign_up', to: 'api.sign_up'
+    get '/api/login', to: 'api.login'
   end
 end

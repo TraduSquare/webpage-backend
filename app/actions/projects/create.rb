@@ -6,7 +6,7 @@ module Backend
       class Create < Backend::Action
         include Deps[repo: 'repositories.projects']
 
-        before :validate_params
+        before :authenticate_call, :validate_params
 
         params do
           required(:project).hash do

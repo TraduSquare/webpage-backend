@@ -6,9 +6,19 @@ require 'uuid7'
 
 module Backend
   class Action < Hanami::Action
+    include Deps[jwt: 'controllers.jwt']
     config.handle_exception ROM::TupleCountMismatchError => :handle_server_error
 
     private
+
+    def authenticate_call(request, _response)
+      jwt_token = jwt.decode_token(request.env['HTTP_AUTHORIZATION'])
+      halt 403, { message: jwt_token }.to_json if jwt_token.is_a? String
+
+      has_permits = jwt_token&.first&.[]('Roles')&.include? 'Read'
+
+      halt 401, { message: 'No estás autorizado a realizar esta acción' }.to_json unless has_permits
+    end
 
     def handle_not_found
       halt 404, { message: 'No encontrado' }.to_json

@@ -13,7 +13,7 @@ module Backend
         articles.combine(:projects).to_a.map(&:to_h)
       end
 
-      def last(limit = nil, order_by = :created_at, direction = :asc)
+      def last(limit = nil, order_by = :created_at, _direction = :asc)
         query = articles
         query = query.limit(limit) if limit
         query = query.order(order_by)

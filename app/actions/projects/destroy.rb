@@ -6,7 +6,7 @@ module Backend
       class Destroy < Backend::Action
         include Deps[repo: 'repositories.projects']
 
-        before :validate_params
+        before :authenticate_call, :validate_params
 
         params do
           required(:id).value(:integer)

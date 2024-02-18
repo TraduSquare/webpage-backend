@@ -2,13 +2,10 @@
 
 module Backend
   module Actions
-    module Articles
+    module Comments
       class Index < Backend::Action
-        include Deps[articles: 'repositories.articles']
-
         def handle(*, response)
-          response.format = :json
-          handle_success(articles.last)
+          response.body = self.class.name
         end
       end
     end

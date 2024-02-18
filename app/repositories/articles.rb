@@ -9,8 +9,21 @@ module Backend
         articles.order(:created_at).to_a.map(&:to_h)
       end
 
-      def articles_with_projects
+      def with_projects
         articles.combine(:projects).to_a.map(&:to_h)
+      end
+
+      def last(limit = nil, order_by = :created_at, direction = :asc)
+        query = articles
+        query = query.limit(limit) if limit
+        query = query.order(order_by)
+        query.combine(:comments, :projects).to_a.map(&:to_h)
+      end
+
+      def show_with_comments_and_projects(slug)
+        return nil if (article = find_by_slug(slug).blank?)
+
+        article.combine(:comments, :projects).to_a.map(&:to_h)
       end
     end
   end

@@ -34,5 +34,10 @@ module Backend
     post '/missions', to: 'missions.create'
     delete '/missions/:id', to: 'missions.destroy'
     get '/api/generate_token', to: 'api.generate_token'
+    post '/comments', to: 'comments.create'
+    delete '/comments/:id', to: 'comments.destroy'
+    get '/comments', to: 'comments.index'
+    get '/comments/:id', to: 'comments.show'
+    put '/comments/:id', to: 'comments.update'
   end
 end

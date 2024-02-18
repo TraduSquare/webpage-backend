@@ -14,8 +14,10 @@ gem 'rom-sql', '~> 3.6'
 
 gem 'dry-types', '~> 1.0', '>= 1.6.1'
 gem 'puma'
+gem 'rack-cors'
 gem 'rake'
 gem 'uuid7'
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 
 group :development, :test do
   gem 'dotenv'

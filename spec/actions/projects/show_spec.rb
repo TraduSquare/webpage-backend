@@ -20,12 +20,6 @@ RSpec.describe 'GET /projects/:id', type: %i[request database] do
       )
     end
 
-    # it 'renders the project with id' do
-    #   expect(Backend::Repositories::Projects.find_by_id(projects.first[:id])).to include(
-    #     'id' => projects.first[:id]
-    #   )
-    # end
-
     it 'renders 1 project 100 times' do
       100.times do
         get "/projects/#{projects.first[:slug]}"

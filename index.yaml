@@ -1,0 +1,77 @@
+openapi: '3.1.0'
+info:
+  version: '1.0.0'
+  title: 'Sample API'
+  description: Buy or rent spacecrafts
+
+paths:
+  /projects/:projectSlug:
+    parameters:
+      - name: projectSlug
+        description: The unique identifier of the project
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/SpacecraftId'
+    get:
+      summary: Read a project
+      responses:
+        200:
+          description: The project corresponding to the provided `projectSlug`
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+        404:
+          description: No project found for the provided `projectSlug`
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        422:
+          description: Invalid or missing parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    projectSlug:
+      description: The unique identifier of a project
+      type: string
+    Spacecraft:
+      type: object
+      required:
+        - id
+        - name
+        - type
+      properties:
+        id:
+          $ref: '#/components/schemas/SpacecraftId'
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+            - capsule
+            - probe
+            - satellite
+            - spaceplane
+            - station
+        description:
+          type: string
+    Error:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          description: A human readable error message
+          type: string
+  securitySchemes:
+    ApiKey:
+      type: apiKey
+      in: header
+      name: X-Api-Key
+security:
+  - ApiKey: []

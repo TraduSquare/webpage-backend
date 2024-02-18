@@ -13,7 +13,7 @@ module Backend
 
     def authenticate_call(request, _response)
       jwt_token = jwt.decode_token(request.env['HTTP_AUTHORIZATION'])
-      halt 403, { message: jwt_token }.to_json if jwt_token.is_a? String
+      halt 401, { message: jwt_token }.to_json if jwt_token.is_a? String
 
       has_permits = jwt_token&.first&.[]('Roles')&.include? 'Read'
 

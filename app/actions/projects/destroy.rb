@@ -7,7 +7,6 @@ module Backend
         include Deps[repo: 'repositories.projects']
 
         before :authenticate_call, :validate_params
-
         params do
           required(:id).value(:integer)
         end

@@ -31,6 +31,8 @@ jobs:
           echo "${{ secrets.ENV_FILE }}" > .env
       - name: Execute docker-compose
         run: docker-compose -f "docker-compose.yml" up -d --build
+      - name: Dir
+        run: /usr/src/app
       - name: Run tests
         run: docker-compose exec -T app "bundle exec rspec /usr/src/app/spec/actions/projects/create_spec.rb"
       - name: Upload coverage reports to Codecov

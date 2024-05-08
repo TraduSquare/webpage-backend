@@ -1,6 +1,6 @@
 networks:
   tradusquare:
-    driver: bridge
+    name: tradusquare
 volumes:
   postgres-data:
 services:

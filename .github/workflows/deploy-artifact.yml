@@ -1,6 +1,10 @@
 #Sample CD file
 name: Deploy to server or Storage Box
-on: push
+on:
+  workflow_run:
+    workflows: ["Generate artifacts"]
+    types:
+      - completed
 jobs:
   deploy:
     runs-on: ubuntu-latest

@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 RSpec.describe 'GET /projects/:id', type: %i[request database] do
+  let(:request_headers) do
+    { 'HTTP_ACCEPT' => 'application/json', 'CONTENT_TYPE' => 'application/json', 'HTTP_AUTHENTICATION' => ENV['JWT_PUBLIC_KEY'] }
+  end
   let(:projects) { app['persistence.rom'].relations[:projects] }
 
   context 'returns a project given info' do
@@ -9,7 +12,7 @@ RSpec.describe 'GET /projects/:id', type: %i[request database] do
     end
 
     it 'renders the project with slug' do
-      get "/projects/#{projects.first[:slug]}"
+      get "/projects/#{projects.first[:slug]}", request_headers
 
       expect(last_response).to be_successful
 
@@ -37,7 +40,7 @@ RSpec.describe 'GET /projects/:id', type: %i[request database] do
 
   context 'when no project matches the given id' do
     it 'returns not found' do
-      get '/projects/jejejeje'
+      get '/projects/jejejeje', request_headers
 
       response_body = JSON.parse(last_response.body)
 

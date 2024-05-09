@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 RSpec.describe 'GET /projects', type: %i[request database] do
+  let(:request_headers) do
+    { 'HTTP_ACCEPT' => 'application/json', 'CONTENT_TYPE' => 'application/json', 'HTTP_AUTHENTICATION' => ENV['JWT_PUBLIC_KEY'] }
+  end
+
   let(:projects) { app['persistence.rom'].relations[:projects] }
   let(:articles) { app['persistence.rom'].relations[:articles] }
   let(:articles_projects) { app['persistence.rom'].relations[:articles_projects] }
@@ -16,7 +20,7 @@ RSpec.describe 'GET /projects', type: %i[request database] do
 
   context 'one project'
   it 'returns a list of projects' do
-    get '/projects'
+    get '/projects', request_headers
 
     expect(last_response).to be_successful
     expect(last_response.content_type).to eq('application/json; charset=utf-8')

@@ -88,7 +88,6 @@ GEM
       dry-schema (>= 1.12, < 2)
       zeitwerk (~> 2.6)
     ffi (1.16.3)
-    ffi (1.16.3-x64-mingw-ucrt)
     formatador (1.1.0)
     guard (2.18.1)
       formatador (>= 0.2.4)
@@ -179,7 +178,6 @@ GEM
       ast (~> 2.4.1)
       racc
     pg (1.5.5)
-    pg (1.5.5-x64-mingw-ucrt)
     pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -272,8 +270,8 @@ GEM
     zeitwerk (2.6.13)
 
 PLATFORMS
-  x64-mingw-ucrt
-  x86_64-linux
+  ruby
+  x86_64-linux-musl
 
 DEPENDENCIES
   bullet
@@ -301,4 +299,4 @@ DEPENDENCIES
   uuid7
 
 BUNDLED WITH
-   2.4.21
+   2.5.9

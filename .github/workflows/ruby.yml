@@ -37,7 +37,7 @@ jobs:
             db
             app
           test-container: app
-          test-command: "bundle exec rspec /spec/actions/projects/create_spec.rb"
+          test-command: "bundle exec rspec spec/actions/projects/create_spec.rb"
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
         env:

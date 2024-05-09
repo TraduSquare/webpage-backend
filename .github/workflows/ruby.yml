@@ -38,7 +38,7 @@ jobs:
             db
             app
           test-container: app
-          test-command: "bundle exec rspec spec/actions/projects/create_spec.rb"
+          test-command: "bundle exec rspec spec"
         env:
           RUBY_VERSION: ${{ matrix.ruby-version }}
       - name: Upload coverage reports to Codecov

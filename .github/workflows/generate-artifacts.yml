@@ -49,5 +49,14 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: dist
-          path: ./
+          path: |
+            app
+            config
+            db
+            lib
+            config.ru
+            docker-compose.yml
+            Dockerfile.app
+            Gemfile.lock
+            Guardfile
           retention-days: 1

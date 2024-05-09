@@ -1,6 +1,6 @@
 RSpec.describe 'POST /projects', type: %i[request database] do
   let(:request_headers) do
-    { 'HTTP_ACCEPT' => 'application/json', 'CONTENT_TYPE' => 'application/json', 'HTTP_AUTHENTICATION' => ENV['JWT_PUBLIC_KEY'] }
+    { 'HTTP_ACCEPT' => 'application/json', 'CONTENT_TYPE' => 'application/json', 'HTTP_AUTHENTICATION' => ENV['JWT_TOKEN'] }
   end
 
   context 'given valid params' do

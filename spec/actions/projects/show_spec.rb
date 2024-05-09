@@ -2,7 +2,7 @@
 
 RSpec.describe 'GET /projects/:id', type: %i[request database] do
   let(:request_headers) do
-    { 'HTTP_ACCEPT' => 'application/json', 'CONTENT_TYPE' => 'application/json', 'HTTP_AUTHENTICATION' => ENV['JWT_PUBLIC_KEY'] }
+    { 'HTTP_ACCEPT' => 'application/json', 'CONTENT_TYPE' => 'application/json', 'HTTP_AUTHENTICATION' => ENV['JWT_TOKEN'] }
   end
   let(:projects) { app['persistence.rom'].relations[:projects] }
 

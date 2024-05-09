@@ -10,15 +10,17 @@ module Backend
         JWT.encode payload, HMAC_SECRET, 'HS256'
       end
 
-      def decode_token(token)
+      def decode_token(token = nil)
+        return 'No se ha proporcionado un token JWT en la cabecera de la petición' if token.nil?
+
         begin
           JWT.decode token, HMAC_SECRET, true, { iss: 'TraduSquare', verify_iss: true, algorithm: 'HS256' }
-        rescue JWT::JWKError
-          'No se ha proporcionado un token JWT en la cabecera de la petición o no es válido.'
         rescue JWT::InvalidIssuerError
           'No se ha podido autenticar la llamada. Token no emitido por TraduSquare.'
         rescue JWT::VerificationError
-          'No se ha podido autenticar la llamada. Token inválido, no se ha podido decodificar.'
+          'No se ha podido autenticar la llamada. Token inválido.'
+        rescue JWT::DecodeError
+          'No se ha podido autenticar la llamada. El token no se puede decodificar.'
         end
       end
 

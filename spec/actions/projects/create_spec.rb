@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe 'POST /projects', type: %i[request database] do
   let(:request_headers) do
     { 'HTTP_ACCEPT' => 'application/json', 'CONTENT_TYPE' => 'application/json', 'HTTP_AUTHORIZATION' => ENV['JWT_TOKEN'] }

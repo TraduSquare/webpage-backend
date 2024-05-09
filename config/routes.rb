@@ -38,7 +38,7 @@ module Backend
     get '/comments', to: 'comments.index'
     get '/comments/:id', to: 'comments.show'
     put '/comments/:id', to: 'comments.update'
-    get '/api/sign_up', to: 'api.sign_up'
-    get '/api/login', to: 'api.login'
+    post '/api/sign_up', to: 'api.sign_up'
+    post '/api/login', to: 'api.login'
   end
 end

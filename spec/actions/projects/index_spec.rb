@@ -20,7 +20,7 @@ RSpec.describe 'GET /projects', type: %i[request database] do
 
   context 'one project'
   it 'returns a list of projects' do
-    get '/projects', request_headers
+    get '/projects', nil, request_headers
 
     expect(last_response).to be_successful
     expect(last_response.content_type).to eq('application/json; charset=utf-8')
@@ -33,7 +33,7 @@ RSpec.describe 'GET /projects', type: %i[request database] do
   context 'hundreds of projects' do
     it 'Calls index 100 times' do
       100.times do
-        get '/projects'
+        get '/projects', nil, request_headers
       end
 
       response_body = JSON.parse(last_response.body)

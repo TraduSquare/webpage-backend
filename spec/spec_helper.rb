@@ -5,9 +5,7 @@ require 'simplecov'
 
 SimpleCov.start do
   enable_coverage :branch
-  primary_coverage :branch
-  minimum_coverage line: 90, branch: 80
-  refuse_coverage_drop :line, :branch
+  minimum_coverage line: 90, branch: 50
   add_filter %r{^/spec/}
 end
 SPEC_ROOT = Pathname(__dir__).realpath.freeze

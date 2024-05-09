@@ -12,7 +12,7 @@ RSpec.describe 'GET /projects/:id', type: %i[request database] do
     end
 
     it 'renders the project with slug' do
-      get "/projects/#{projects.first[:slug]}", request_headers
+      get "/projects/#{projects.first[:slug]}", nil, request_headers
 
       expect(last_response).to be_successful
 
@@ -25,7 +25,7 @@ RSpec.describe 'GET /projects/:id', type: %i[request database] do
 
     it 'renders 1 project 100 times' do
       100.times do
-        get "/projects/#{projects.first[:slug]}"
+        get "/projects/#{projects.first[:slug]}", nil, request_headers
       end
 
       expect(last_response).to be_successful
@@ -40,7 +40,7 @@ RSpec.describe 'GET /projects/:id', type: %i[request database] do
 
   context 'when no project matches the given id' do
     it 'returns not found' do
-      get '/projects/jejejeje', request_headers
+      get '/projects/jejejeje', nil, request_headers
 
       response_body = JSON.parse(last_response.body)
 

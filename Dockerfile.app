@@ -1,4 +1,6 @@
-FROM ruby:3.3.1-alpine
+ARG RUBY_VERSION=3.3.1
+
+FROM ruby:${RUBY_VERSION}-alpine
 
 WORKDIR /usr/src/app
 

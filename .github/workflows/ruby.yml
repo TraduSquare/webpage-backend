@@ -22,23 +22,25 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        ruby-version: ['3.2.2', '3.3.0']
+        ruby-version: ['3.2.2', '3.3.1']
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Create .env file
         run : |
           echo "${{ secrets.ENV_FILE }}" > .env
-      - name: Execute docker-compose
-        run: docker-compose -f "docker-compose.yml" up -d --build
-      - name: Dir
-        run: ls /usr/src/app
-      - name: Run tests
-        run: docker-compose exec -T app "bundle exec rspec /usr/src/app/spec/actions/projects/create_spec.rb"
+      - uses: adambirds/docker-compose-action@v1.3.0
+        with:
+          compose-file: "./docker-compose.yml"
+          down-flags: "--volumes"
+          services: |
+            db
+            app
+          test-container: app
+          test-command: "bundle exec rspec spec/actions/projects/create_spec.rb"
+        env:
+          RUBY_VERSION: ${{ matrix.ruby-version }}
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-      - name: Stop containers
-        if: always()
-        run: docker-compose -f "docker-compose.yml" down

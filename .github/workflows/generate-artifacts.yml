@@ -57,6 +57,8 @@ jobs:
             config.ru
             docker-compose.yml
             Dockerfile.app
+            Gemfile
             Gemfile.lock
             Guardfile
+            Rakefile
           retention-days: 1

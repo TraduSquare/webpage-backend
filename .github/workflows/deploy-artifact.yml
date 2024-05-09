@@ -1,4 +1,3 @@
-# #Sample CD file
 # name: Deploy webpage to server
 # on:
 #   workflow_run:

@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        ruby-version: ['3.2.2', '3.3.1']
+        ruby-version: ['3.3.1']
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -33,6 +33,7 @@ jobs:
         with:
           compose-file: "./docker-compose.yml"
           down-flags: "--volumes"
+          up-flags: "--build"
           services: |
             db
             app

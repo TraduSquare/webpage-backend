@@ -10,7 +10,7 @@ module Backend
 
         def handle(_request, response)
           response.format = :json
-          handle_success(projects.with_articles)
+          handle_success(projects.all)
         end
       end
     end

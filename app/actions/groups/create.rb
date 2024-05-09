@@ -16,7 +16,7 @@ module Backend
         end
 
         def handle(request, _response)
-          request.params[:uuid] = generate_uuid
+          request.params[:group][:uuid] = generate_uuid
           handle_server_error unless (group = repo.create(request.params[:group]))
           handle_success({ message: '¡Éxito! Se ha creado el objeto correctamente', data: group.to_h }, 201)
         end

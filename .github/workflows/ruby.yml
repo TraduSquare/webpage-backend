@@ -29,12 +29,15 @@ jobs:
       - name: Create .env file
         run : |
           echo "${{ secrets.ENV_FILE }}" > .env
-      - name: Execute docker-compose
-        run: docker-compose -f "docker-compose.yml" up -d --build
-      - name: Dir
-        run: ls /usr/src/app
-      - name: Run tests
-        run: docker-compose exec -T app "bundle exec rspec /usr/src/app/spec/actions/projects/create_spec.rb"
+      - uses: adambirds/docker-compose-action@v1.3.0
+        with:
+          compose-file: "./docker/docker-compose.yml"
+          down-flags: "--volumes"
+          services: |
+            db
+            app
+          test-container: app
+          test-command: "bundle exec rspec /spec/actions/projects/create_spec.rb"
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
         env:

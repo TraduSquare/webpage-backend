@@ -13,7 +13,7 @@ module Backend
         end
 
         def handle(request, _response)
-          handle_not_found('Misión') unless (mission = repo.find_by_slug(request.params[:slug]))
+          handle_not_found('Misión') unless (mission = repo.where(slug: request.params[:slug]).one)
 
           handle_success(mission)
         end

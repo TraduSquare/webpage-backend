@@ -12,6 +12,7 @@ module Backend
           required(:project).hash do
             required(:title).filled(:string)
             required(:slug).filled(:string)
+            optional(:uuid).filled(:string)
           end
         end
 

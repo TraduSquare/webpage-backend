@@ -15,6 +15,7 @@ module Backend
             required(:slug).filled(:string)
             required(:content).filled(:string)
             required(:featured_image).filled(:string)
+            optional(:uuid).filled(:string)
           end
         end
 

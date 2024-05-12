@@ -17,7 +17,7 @@ module Backend
         end
 
         def handle(request, _response)
-          handle_success({ token: jwt.generate_token(request.params)}, 201)
+          handle_success({ token: jwt.generate_token(request.params) }, 201)
         end
       end
     end

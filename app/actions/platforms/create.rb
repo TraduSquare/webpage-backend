@@ -13,10 +13,12 @@ module Backend
             required(:title).filled(:string)
             required(:slug).filled(:string)
             required(:image_url).filled(:string)
+            optional(:uuid).filled(:string)
           end
         end
 
         def handle(request, _response)
+          request.params[:platform][:uuid] = generate_uuid
           handle_server_error unless (platform = repo.create(request.params[:platform]))
 
           handle_success(platform.to_h, 201)

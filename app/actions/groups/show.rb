@@ -13,7 +13,7 @@ module Backend
         end
 
         def handle(request, _response)
-          handle_not_found('Grupo') unless (group = repo.find_by(slug: request.params[:slug]))
+          handle_not_found('Grupo') unless (group = repo.where(slug: request.params[:slug]).one)
 
           handle_success(group)
         end

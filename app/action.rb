@@ -20,11 +20,11 @@ module Backend
       halt 401, { message: 'No estás autorizado a realizar esta acción' }.to_json unless has_permits
     end
 
-    def handle_not_found
-      halt 404, { message: 'No encontrado' }.to_json
+    def handle_not_found(element = nil)
+      halt 404, { message: "#{element}. Elemento no encontrado" }.to_json
     end
 
-    def handle_server_error(_request, _response, _exception)
+    def handle_server_error
       halt 500, { message: 'Algo ha salido mal, probablemente sea culpa nuestra' }.to_json
     end
 

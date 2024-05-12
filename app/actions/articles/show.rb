@@ -13,8 +13,7 @@ module Backend
         end
 
         def handle(request, _response)
-          slug = request.params[:slug]
-          handle_not_found if (article = repo.with_aggregates(slug)).empty?
+          handle_not_found('Noticia') if (article = repo.with_aggregates(request.params[:slug])).empty?
 
           handle_success(article)
         end

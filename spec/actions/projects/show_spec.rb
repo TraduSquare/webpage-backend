@@ -48,7 +48,7 @@ RSpec.describe 'GET /projects/:id', type: %i[request database] do
       response_body = JSON.parse(last_response.body)
 
       expect(response_body).to eq(
-        'message' => 'No encontrado'
+        'message' => 'Proyecto. Elemento no encontrado'
       )
     end
   end

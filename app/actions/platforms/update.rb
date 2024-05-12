@@ -14,10 +14,8 @@ module Backend
         end
 
         def handle(request, _response)
-          platform_id = request.params[:id]
-          handle_not_found unless repo.find(platform_id)
+          handle_not_found('Plataforma') unless (platform = repo.update(request.params[:id], request.params[:platform]))
 
-          handle_server_error unless (platform = repo.update(platform_id, request.params[:platform]))
           handle_success(platform.to_h)
         end
       end

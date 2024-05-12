@@ -10,7 +10,8 @@ RSpec.describe 'GET /api/sign_up', type: %i[request database] do
       { email: 'test@test.com',
         first_name: 'test',
         last_name: 'test',
-        roles: ['Read'] }
+        roles: ['Read'],
+        exp_time: Time.now.to_i }
     end
 
     it 'Creates a jwt token from params' do

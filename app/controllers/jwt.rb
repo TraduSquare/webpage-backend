@@ -16,11 +16,9 @@ module Backend
         begin
           JWT.decode token, HMAC_SECRET, true, { iss: 'TraduSquare', verify_iss: true, algorithm: 'HS256' }
         rescue JWT::InvalidIssuerError
-          'No se ha podido autenticar la llamada. Token no emitido por TraduSquare.'
-        rescue JWT::VerificationError
-          'No se ha podido autenticar la llamada. Token inválido.'
+          'No se ha podido autorizar la llamada. Token no emitido por TraduSquare.'
         rescue JWT::DecodeError
-          'No se ha podido autenticar la llamada. El token no se puede decodificar.'
+          'No se ha podido autorizar la llamada. Token inválido.'
         end
       end
 

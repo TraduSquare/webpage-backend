@@ -9,7 +9,7 @@ module Backend
         comments.order(:created_at).to_a.map(&:to_h)
       end
 
-      def last(limit)
+      def last(limit = 5)
         comments.combine(:articles).order(comments[:created_at].qualified.desc).limit(limit).to_a.map(&:to_h)
       end
     end

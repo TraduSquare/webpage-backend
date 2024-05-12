@@ -8,7 +8,7 @@ module Backend
 
         def handle(*, response)
           response.format = :json
-          handle_success(articles.last)
+          handle_success(articles.all)
         end
       end
     end

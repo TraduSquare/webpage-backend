@@ -12,9 +12,10 @@ module Backend
           required(:slug).value(:string)
         end
 
-        def handle(request, response)
-          handle_not_found unless (article = repo.find_by(slug: request.params[:slug]))
-          response.format = :json
+        def handle(request, _response)
+          slug = request.params[:slug]
+          handle_not_found if (article = repo.with_aggregates(slug)).empty?
+
           handle_success(article)
         end
       end

@@ -6,11 +6,11 @@ module Backend
       commands :create, update: :by_pk, delete: :by_pk
 
       def all
-        projects.order(:created_at).to_a.map(&:to_h)
+        projects.order(:title).to_a.map(&:to_h)
       end
 
-      def with_articles
-        projects.combine(:articles).to_a.map(&:to_h)
+      def with_aggregates(slug)
+        projects.combine(:articles, :groups, :platforms, :missions).where(slug:).one.to_h
       end
     end
   end

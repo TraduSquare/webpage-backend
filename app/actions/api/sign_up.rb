@@ -13,6 +13,7 @@ module Backend
           required(:last_name).filled(:string)
           required(:email).filled(:string)
           required(:roles).filled(:array)
+          optional(:exp_time).filled(:integer)
         end
 
         def handle(request, _response)

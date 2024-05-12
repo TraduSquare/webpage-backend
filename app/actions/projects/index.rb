@@ -4,13 +4,13 @@ module Backend
   module Actions
     module Projects
       class Index < Backend::Action
-        include Deps[repo: 'repositories.projects']
+        include Deps[projects: 'repositories.projects']
 
-        def handle(*, response)
-          projects = repo.all
+        before :authenticate_call
 
+        def handle(_request, response)
           response.format = :json
-          halt 200, { message: projects }.to_json
+          handle_success(projects.all)
         end
       end
     end

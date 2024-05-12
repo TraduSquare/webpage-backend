@@ -6,19 +6,20 @@ module Backend
       class Create < Backend::Action
         include Deps[repo: 'repositories.groups']
 
+        before :authenticate_call, :validate_params
+
         params do
           required(:group).hash do
             required(:title).filled(:string)
             required(:slug).filled(:string)
+            optional(:uuid).filled(:string)
           end
         end
 
-        def handle(request, response)
-          halt 422, { message: 'Invalid params' } unless request.params.valid?
-
-          halt 500, { message: 'Error creating the group' } unless (group = repo.create(request.params[:group]))
-
-          halt 201, { message: '¡Éxito! Se ha creado el objeto correctamente', data: group.to_h }.to_json
+        def handle(request, _response)
+          request.params[:group][:uuid] = generate_uuid
+          handle_server_error unless (group = repo.create(request.params[:group]))
+          handle_success({ message: '¡Éxito! Se ha creado el objeto correctamente', data: group.to_h }, 201)
         end
       end
     end

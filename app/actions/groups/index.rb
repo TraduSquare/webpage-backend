@@ -6,11 +6,9 @@ module Backend
       class Index < Backend::Action
         include Deps[repo: 'repositories.groups']
 
-        def handle(*, response)
-          groups = repo.all
-
+        def handle(_request, response)
           response.format = :json
-          halt 200, { message: groups }.to_json
+          handle_success(repo.with_projects)
         end
       end
     end

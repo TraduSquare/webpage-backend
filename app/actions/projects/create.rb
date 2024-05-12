@@ -6,19 +6,21 @@ module Backend
       class Create < Backend::Action
         include Deps[repo: 'repositories.projects']
 
+        before :authenticate_call, :validate_params
+
         params do
           required(:project).hash do
             required(:title).filled(:string)
             required(:slug).filled(:string)
+            optional(:uuid).filled(:string)
           end
         end
 
-        def handle(request, response)
-          halt 422, { message: 'Invalid params' } unless request.params.valid?
+        def handle(request, _response)
+          request.params[:project][:uuid] = generate_uuid
+          project = repo.create(request.params[:project])
 
-          halt 500, { message: 'Error creating the project' } unless (project = repo.create(request.params[:project]))
-
-          halt 201, { message: '¡Éxito! Se ha creado el objeto correctamente', data: project.to_h }.to_json
+          handle_success(project.to_h, 201)
         end
       end
     end

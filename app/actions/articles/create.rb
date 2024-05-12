@@ -3,8 +3,11 @@
 module Backend
   module Actions
     module Articles
+      # Class to create articles object. It includes params validation and handle method
       class Create < Backend::Action
         include Deps[repo: 'repositories.articles']
+
+        before :validate_params
 
         params do
           required(:article).hash do
@@ -12,15 +15,15 @@ module Backend
             required(:slug).filled(:string)
             required(:content).filled(:string)
             required(:featured_image).filled(:string)
+            optional(:uuid).filled(:string)
           end
         end
 
-        def handle(request, response)
-          halt 422, { message: 'Invalid params' } unless request.params.valid?
+        def handle(request, _response)
+          request.params[:article][:uuid] = generate_uuid
+          handle_server_error unless (article = repo.create(request.params[:article]))
 
-          halt 500, { message: 'Error creating the article' } unless (article = repo.create(request.params[:article]))
-
-          halt 201, { message: '¡Éxito! Se ha creado el objeto correctamente', data: article.to_h }.to_json
+          handle_success(article.to_h, 201)
         end
       end
     end

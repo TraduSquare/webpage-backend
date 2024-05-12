@@ -1,0 +1,1165 @@
+{
+	"info": {
+		"_postman_id": "50307405-30b2-404c-b99e-5f691466004e",
+		"name": "Endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "30675178-50307405-30b2-404c-b99e-5f691466004e"
+	},
+	"item": [
+		{
+			"name": "Projects",
+			"item": [
+				{
+					"name": "Create",
+					"id": "f2ee9da8-3f61-49b2-90c3-b330055de1a5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"project\": {\n    \"title\": \"proyecto_prueba\",\n    \"slug\": \"proyecto_prueba\",\n    \"description\": \"proyecto_prueba\"\n}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:2300/projects",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "2300",
+							"path": [
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"id": "00822050-1479-46a2-8b4a-f6739a598064",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"project\": {\n    \"title\": \"MUAJAJAJAJA3\",\n    \"slug\": \"muajajajajaj\",\n    \"description\": \"a\"\n}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:2300/projects/1",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "2300",
+							"path": [
+								"projects",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"id": "a445751c-1c4c-4204-9d4c-1bbafaf7db27",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"project\": {\n    \"title\": \"MUAJAJAJAJA3\",\n    \"slug\": \"muajajajajaj\",\n    \"description\": \"a\"\n}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:2300/projects/1",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "2300",
+							"path": [
+								"projects",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"id": "0d6b63e0-6c26-4aa8-b23e-b00e3cdcc5de",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"project\": {\n    \"title\": \"proyecto_prueba\",\n    \"slug\": \"proyecto_prueba\",\n    \"description\": \"proyecto_prueba\"\n}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:2300/projects/:projectSlug",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "2300",
+							"path": [
+								"projects",
+								":projectSlug"
+							],
+							"variable": [
+								{
+									"key": "projectSlug",
+									"value": "proyecto_prueba"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Index",
+					"id": "81570279-59a0-434d-ace7-9ae9cecf7fc0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"project\": {\n    \"title\": \"proyecto_prueba\",\n    \"slug\": \"proyecto_prueba\",\n    \"description\": \"proyecto_prueba\"\n}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:2300/projects",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "2300",
+							"path": [
+								"projects"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "63525285-886b-48d9-a9f0-53cf9f27b7cd"
+		},
+		{
+			"name": "Comments",
+			"item": [
+				{
+					"name": "Create",
+					"id": "52b71686-9aa8-4c91-9448-544f9ee75b09",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"comment\": {\n    \"title\": \"MUAJAJAJAJA3\",\n    \"slug\": \"muajajajajaj\",\n    \"description\": \"a\"\n}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:2300/comments",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "2300",
+							"path": [
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"id": "694f936d-b2e3-47b7-bb48-0c59c0de4f63",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"project\": {\n    \"title\": \"MUAJAJAJAJA3\",\n    \"slug\": \"muajajajajaj\",\n    \"description\": \"a\"\n}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:2300/projects/1",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "2300",
+							"path": [
+								"projects",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"id": "45a2e72d-697a-4fa2-8ef5-ca959c18693a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"project\": {\n    \"title\": \"MUAJAJAJAJA3\",\n    \"slug\": \"muajajajajaj\",\n    \"description\": \"a\"\n}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:2300/projects/1",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "2300",
+							"path": [
+								"projects",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"id": "37e310fa-06d4-44c5-be9f-2fabebd6f8e8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"project\": {\n    \"title\": \"MUAJAJAJAJA3\",\n    \"slug\": \"muajajajajaj\",\n    \"description\": \"a\"\n}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:2300/projects/muajajajaj",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "2300",
+							"path": [
+								"projects",
+								"muajajajaj"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Index",
+					"id": "617caf80-962c-47e7-aa0b-04bfab3bf846",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"project\": {\n    \"title\": \"MUAJAJAJAJA3\",\n    \"slug\": \"muajajajajaj\",\n    \"description\": \"a\"\n}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:2300/projects",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "2300",
+							"path": [
+								"projects"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "66258523-ca7d-4b2b-9cd5-f53fe3653ae9"
+		},
+		{
+			"name": "Articles",
+			"item": [
+				{
+					"name": "Create",
+					"id": "2aa6121e-1a12-4048-8307-1d7f9c9d9a4d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"article\": {\n    \"title\": \"MUAJAJAJAJA3\",\n    \"slug\": \"muajajajajaj\",\n    \"content\": \"a\",\n    \"featured_image\": \"https://tradusquare.es\"\n}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:2300/articles",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "2300",
+							"path": [
+								"articles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"id": "6a791925-15d8-4007-883e-5154c4d15a24",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"article\": {\n    \"title\": \"MUAJAJAJAJA3\",\n    \"slug\": \"muajajajajaj\",\n    \"content\": \"a\",\n    \"featured_image\": \"https://tradusquare.es\"\n}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:2300/articles/1",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "2300",
+							"path": [
+								"articles",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"id": "301095ee-e0c6-4199-ac98-0991af877e63",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"project\": {\n    \"title\": \"MUAJAJAJAJA3\",\n    \"slug\": \"muajajajajaj\",\n    \"description\": \"a\"\n}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:2300/articles/1",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "2300",
+							"path": [
+								"articles",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"id": "791be993-fab2-4522-859c-928da2b8445e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"project\": {\n    \"title\": \"MUAJAJAJAJA3\",\n    \"slug\": \"muajajajajaj\",\n    \"description\": \"a\"\n}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:2300/articles/muajajajajaj",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "2300",
+							"path": [
+								"articles",
+								"muajajajajaj"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Index",
+					"id": "5337c58f-f888-4740-bea2-d20919765fc9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"project\": {\n    \"title\": \"MUAJAJAJAJA3\",\n    \"slug\": \"muajajajajaj\",\n    \"description\": \"a\"\n}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:2300/articles",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "2300",
+							"path": [
+								"articles"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "10f38962-50b6-46e0-8309-1c421ca54286"
+		},
+		{
+			"name": "Platforms",
+			"item": [
+				{
+					"name": "Create",
+					"id": "07b918dd-3c0a-40d1-b0fa-460265c4e410",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"platform\": {\n    \"title\": \"MUAJAJAJAJA3\",\n    \"slug\": \"muajajajajaj\",\n    \"image_url\": \"https://tradusquare.es\"\n}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:2300/platforms",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "2300",
+							"path": [
+								"platforms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"id": "c8aed6b5-00e5-4b55-8e3c-f89f5303ccea",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"platform\": {\n    \"title\": \"MUAJAJAJAJA3\",\n    \"slug\": \"muajajajajaj\",\n    \"image_url\": \"https://tradusquare.es\"\n}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:2300/platforms/1",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "2300",
+							"path": [
+								"platforms",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"id": "0b6e54a6-a1e8-4b97-adb2-e18ec1c44994",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://0.0.0.0:2300/platforms/1",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "2300",
+							"path": [
+								"platforms",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"id": "f7e31a2b-4cc2-4279-9e66-7e38d7498ae8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://0.0.0.0:2300/platforms/muajajajajaj",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "2300",
+							"path": [
+								"platforms",
+								"muajajajajaj"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Index",
+					"id": "8893f46a-521f-4b6c-b239-642ae3a04d18",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://0.0.0.0:2300/platforms",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "2300",
+							"path": [
+								"platforms"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "d30e1814-a371-4c97-88b5-2c5328751189"
+		},
+		{
+			"name": "Groups",
+			"item": [
+				{
+					"name": "Create",
+					"id": "fb5ae32f-afd2-461b-824f-87c2b7f5590d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"group\": {\n    \"title\": \"MUAJAJAJAJA3\",\n    \"slug\": \"muajajajajaj\",\n    \"logo\": \"https://tradusquare.es\"\n}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:2300/groups",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "2300",
+							"path": [
+								"groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"id": "778da81a-fc21-4ff7-9dc2-22b4bdbae9cb",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"group\": {\n    \"title\": \"MUAJAJAJAJA3\",\n    \"slug\": \"muajajajajaj\",\n    \"logo\": \"https://tradusquare.es\"\n}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:2300/groups/2",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "2300",
+							"path": [
+								"groups",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"id": "996bc0d9-3a31-4ffe-9fed-e0b5d8127722",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://0.0.0.0:2300/groups/1",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "2300",
+							"path": [
+								"groups",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"id": "a6a4c714-9589-47a9-a973-ab3736b8399c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://0.0.0.0:2300/groups/muajajajajaj",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "2300",
+							"path": [
+								"groups",
+								"muajajajajaj"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Index",
+					"id": "60ec3aa5-ba94-4efc-b599-48074e5242cb",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://0.0.0.0:2300/groups",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "2300",
+							"path": [
+								"groups"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "79bf4a23-7e5b-4969-ba64-b929e06fa7fd"
+		},
+		{
+			"name": "Missions",
+			"item": [
+				{
+					"name": "Create",
+					"id": "967d281e-498c-4ae0-9aa7-b0858462ce92",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"mission\": {\n    \"title\": \"MUAJAJAJAJA3\",\n    \"description\": \"AAAAAAAAAAAAAAAAAa\",\n    \"slug\": \"muajajajajaj\",\n    \"email\": \"test@test.com\",\n    \"featured_image\": \"https://tradusquare.es\"\n}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:2300/missions",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "2300",
+							"path": [
+								"missions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"id": "f703c20c-1ebb-4823-85b6-d594442646a3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"mission\": {\n    \"title\": \"MUAJAJAJAJA3\",\n    \"description\": \"AAAAAAAAAAAAAAAAAa\",\n    \"slug\": \"muajajajajaj\",\n    \"email\": \"test@test.com\",\n    \"featured_image\": \"https://tradusquare.es\"\n}}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:2300/missions/3",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "2300",
+							"path": [
+								"missions",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"id": "b6d226b6-2d1a-4b22-aaa6-c0edfce4f734",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://0.0.0.0:2300/groups/1",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "2300",
+							"path": [
+								"groups",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"id": "3e3fae3f-234d-48a7-9eac-ca21717e35aa",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://0.0.0.0:2300/missions/muajajajajaj",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "2300",
+							"path": [
+								"missions",
+								"muajajajajaj"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Index",
+					"id": "696e62f5-8de3-45b0-b4d6-06795b58026e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://0.0.0.0:2300/missions",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "2300",
+							"path": [
+								"missions"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "3f237f0e-fef8-480b-924d-4f66d5c09ed0"
+		},
+		{
+			"name": "API",
+			"item": [
+				{
+					"name": "SignUp",
+					"id": "640c79e2-52f1-498e-aa7d-580610bf9cea",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"Jorge\",\n    \"last_name\": \"Guerra\",\n    \"email\": \"joguersan@gmail.com\",\n    \"roles\": [\n        \"Read\",\n        \"Write\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:2300/api/sign_up",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "2300",
+							"path": [
+								"api",
+								"sign_up"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"id": "e7390418-03fc-43d4-b15e-01bb14f64648",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"Jorge\",\n    \"last_name\": \"Guerra\",\n    \"email\": \"joguersan@gmail.com\",\n    \"roles\": [\n        \"Read\",\n        \"Write\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:2300/api/login",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "2300",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "f419dcee-64e4-4552-93fb-636df8c75e0d"
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "headerPrefix",
+				"value": "",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "68fa231b-b0a9-4ca3-8419-8c814dd77c64",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "2d32c655-afab-4da8-a049-7d3a7fe8ff27",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "cdc169c7-c577-41b1-b4cd-0d3768f43c16",
+			"key": "jwt_token",
+			"value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmFkdVNxdWFyZSIsImlhdCI6MTcwODI2MjMxMiwiYXVkIjoid3d3LmV4YW1wbGUuY29tIiwic3ViIjoiam9ndWVyc2FuQGdtYWlsLmNvbSIsIkdpdmVuTmFtZSI6IkpvcmdlIiwiU3VybmFtZSI6Ikd1ZXJyYSIsIkVtYWlsIjoiam9ndWVyc2FuQGdtYWlsLmNvbSIsIlJvbGUiOlsiUmVhZCIsIldyaXRlIl19.7bT5a_GQ8auRSePiXkYVG2vuRcAvc4vDZW6eeQaYbCI",
+			"type": "string"
+		}
+	]
+}

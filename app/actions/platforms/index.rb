@@ -6,11 +6,11 @@ module Backend
       class Index < Backend::Action
         include Deps[repo: 'repositories.platforms']
 
-        def handle(*, response)
-          platforms = repo.all
+        before :authenticate_call
 
+        def handle(*, response)
           response.format = :json
-          halt 200, { message: platforms }.to_json
+          handle_success(repo.all)
         end
       end
     end

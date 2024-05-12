@@ -6,19 +6,17 @@ module Backend
       class Update < Backend::Action
         include Deps[repo: 'repositories.platforms']
 
+        before :authenticate_call, :validate_params
+
         params do
           required(:id).value(:integer)
           required(:platform).hash
         end
 
         def handle(request, _response)
-          platform_id = request.params[:id]
-          halt 404, { message: 'No existe el artículo' } unless repo.find_by_id(platform_id)
+          handle_not_found('Plataforma') unless (platform = repo.update(request.params[:id], request.params[:platform]))
 
-          halt 422, { message: request.params.errors } unless request.params.valid?
-
-          platform = repo.update(platform_id, request.params[:platform])
-          halt 200, { message: '¡Éxito! Se ha modificado el objeto correctamente', content: platform.to_h }.to_json
+          handle_success(platform.to_h)
         end
       end
     end

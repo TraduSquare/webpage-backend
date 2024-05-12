@@ -7,14 +7,17 @@ gem 'hanami-api'
 gem 'hanami-controller', '~> 2.0'
 gem 'hanami-router', '~> 2.0'
 gem 'hanami-validations', '~> 2.0'
-
 gem 'pg'
 gem 'rom', '~> 5.3'
 gem 'rom-sql', '~> 3.6'
 
 gem 'dry-types', '~> 1.0', '>= 1.6.1'
+gem 'jwt'
 gem 'puma'
+gem 'rack-cors'
 gem 'rake'
+gem 'uuid7'
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 
 group :development, :test do
   gem 'dotenv'
@@ -37,4 +40,5 @@ end
 group :test do
   gem 'database_cleaner-sequel'
   gem 'rack-test'
+  gem 'simplecov', require: false
 end

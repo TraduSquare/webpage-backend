@@ -12,6 +12,12 @@ module Backend
           required(:project).hash do
             required(:title).filled(:string)
             required(:slug).filled(:string)
+            optional(:technical_info).filled(:string)
+            optional(:decription).filled(:string)
+            optional(:team).filled(:string)
+            optional(:download).filled(:string)
+            optional(:additional_info).filled(:string)
+            optional(:buy_link).filled(:string)
           end
         end
 

@@ -6,12 +6,12 @@ module Backend
   class Repository < ROM::Repository::Root
     include Deps[container: 'persistence.rom']
 
-    def find(id)
-      @root.where(id:)&.first&.to_h
+    def create(attrs_hash)
+      changeset(:create, attrs_hash).map(:add_timestamps).commit
     end
 
-    def find_by(*args)
-      @root.where(*args).first&.to_h
+    def update(attrs_hash)
+      changeset(:update, attrs_hash).map(:touch).commit
     end
   end
 end

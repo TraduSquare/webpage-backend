@@ -151,7 +151,7 @@
 							"variable": [
 								{
 									"key": "projectSlug",
-									"value": "muajajajaja"
+									"value": "proyecto_prueba"
 								}
 							]
 						}
@@ -778,7 +778,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://0.0.0.0:2300/groups/1",
+							"raw": "http://0.0.0.0:2300/groups/2",
 							"protocol": "http",
 							"host": [
 								"0",
@@ -789,7 +789,7 @@
 							"port": "2300",
 							"path": [
 								"groups",
-								"1"
+								"2"
 							]
 						}
 					},
@@ -1048,7 +1048,7 @@
 						"auth": {
 							"type": "noauth"
 						},
-						"method": "GET",
+						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
@@ -1084,7 +1084,7 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",

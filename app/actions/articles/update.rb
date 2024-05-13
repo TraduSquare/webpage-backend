@@ -14,9 +14,8 @@ module Backend
         end
 
         def handle(request, _response)
-          article_id = request.params[:id]
-          handle_not_found unless repo.find(article_id)
-          handle_server_error unless (article = repo.update(article_id, request.params[:article]))
+          handle_not_found('Noticia') unless (article = repo.update(request.params[:id], request.params[:article]))
+
           handle_success(article.to_h)
         end
       end

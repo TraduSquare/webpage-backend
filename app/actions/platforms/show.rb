@@ -12,9 +12,9 @@ module Backend
           required(:slug).value(:string)
         end
 
-        def handle(request, response)
-          handle_not_found unless (platform = repo.find_by_slug(request.params[:slug]))
-          response.format = :json
+        def handle(request, _response)
+          handle_not_found('Plataforma') unless (platform = repo.where(slug: request.params[:slug]).one)
+
           handle_success(platform)
         end
       end

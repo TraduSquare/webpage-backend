@@ -13,7 +13,13 @@ RSpec.describe 'GET /api/sign_up', type: %i[request database] do
         roles: ['Read'] }
     end
 
-    it 'Creates a jwt token from params' do
+    it 'Creates and returns a jwt token from params' do
+      params[:exp_time] = Time.now.to_i
+      post '/api/sign_up', params.to_json, request_headers
+
+      expect(last_response).to be_created
+    end
+    it 'Creates and returns a jwt token from params with exp_time' do
       post '/api/sign_up', params.to_json, request_headers
 
       expect(last_response).to be_created

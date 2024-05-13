@@ -13,12 +13,11 @@ module Backend
           required(:last_name).filled(:string)
           required(:email).filled(:string)
           required(:roles).filled(:array)
+          optional(:exp_time).filled(:integer)
         end
 
         def handle(request, _response)
-          handle_server_error unless (token = jwt.generate_token(request.params))
-
-          handle_success({ token: }, 201)
+          handle_success({ token: jwt.generate_token(request.params) }, 201)
         end
       end
     end

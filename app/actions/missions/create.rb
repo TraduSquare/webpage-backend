@@ -15,10 +15,12 @@ module Backend
             required(:description).filled(:string)
             required(:email).filled(:string)
             required(:featured_image).filled(:string)
+            optional(:uuid).filled(:string)
           end
         end
 
         def handle(request, _response)
+          request.params[:mission][:uuid] = generate_uuid
           handle_server_error unless (mission = repo.create(request.params[:mission]))
 
           handle_success(mission.to_h, 201)

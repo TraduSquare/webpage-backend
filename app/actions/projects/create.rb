@@ -18,6 +18,7 @@ module Backend
             optional(:download).filled(:string)
             optional(:additional_info).filled(:string)
             optional(:buy_link).filled(:string)
+            optional(:uuid).filled(:string)
           end
         end
 

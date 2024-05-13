@@ -2,7 +2,8 @@
 
 RSpec.describe 'GET /projects/:id', type: %i[request database] do
   let(:request_headers) do
-    { 'HTTP_ACCEPT' => 'application/json', 'CONTENT_TYPE' => 'application/json', 'HTTP_AUTHORIZATION' => ENV['JWT_TOKEN'] }
+    { 'HTTP_ACCEPT' => 'application/json', 'CONTENT_TYPE' => 'application/json',
+      'HTTP_AUTHORIZATION' => ENV['JWT_TOKEN'] }
   end
   let(:projects) { app['persistence.rom'].relations[:projects] }
 
@@ -19,7 +20,8 @@ RSpec.describe 'GET /projects/:id', type: %i[request database] do
       response_body = JSON.parse(last_response.body)
 
       expect(response_body).to include(
-        'title' => 'MUAJAJAJAJA3', 'slug' => 'muajajajajaj', 'description' => 'a'
+        'title' => 'MUAJAJAJAJA3', 'slug' => 'muajajajajaj', 'description' => 'a',
+        'groups' => [], 'platforms' => [], 'missions' => []
       )
     end
 
@@ -33,7 +35,8 @@ RSpec.describe 'GET /projects/:id', type: %i[request database] do
       response_body = JSON.parse(last_response.body)
 
       expect(response_body).to include(
-        'title' => 'MUAJAJAJAJA3', 'slug' => 'muajajajajaj', 'description' => 'a'
+        'title' => 'MUAJAJAJAJA3', 'slug' => 'muajajajajaj', 'description' => 'a',
+        'groups' => [], 'platforms' => [], 'missions' => []
       )
     end
   end
@@ -45,7 +48,7 @@ RSpec.describe 'GET /projects/:id', type: %i[request database] do
       response_body = JSON.parse(last_response.body)
 
       expect(response_body).to eq(
-        'message' => 'No encontrado'
+        'message' => 'Proyecto. Elemento no encontrado'
       )
     end
   end

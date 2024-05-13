@@ -14,9 +14,8 @@ module Backend
         end
 
         def handle(request, _response)
-          project_id = request.params[:id]
-          handle_not_found unless repo.find(project_id)
-          handle_server_error unless (project = repo.update(project_id, request.params[:project]))
+          handle_not_found('Proyecto') unless (project = repo.update(request.params[:id], request.params[:project]))
+
           handle_success(project.to_h)
         end
       end

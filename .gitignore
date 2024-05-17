@@ -1,4 +1,5 @@
 .env*
+*.csv
 log/
 coverage/
 Gemfile.lock

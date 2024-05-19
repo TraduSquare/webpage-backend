@@ -5,14 +5,51 @@ info:
   description: Buy or rent spacecrafts
 
 paths:
-  /projects/:projectSlug:
+  /projects:
+    get:
+      summary: Returns an index with all projects
+      responses:
+        200:
+          description: A full list of projects
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+        404:
+          description: No project found for the provided `projectSlug`
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Creates a project with the given params
+      responses:
+        201:
+          description: The project created, corresponding to the provided params
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+        404:
+          description: No project found for the provided `projectSlug`
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        422:
+          description: Invalid or missing parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /projects/{projectSlug}:
     parameters:
       - name: projectSlug
         description: The unique identifier of the project
         in: path
         required: true
         schema:
-          $ref: '#/components/schemas/SpacecraftId'
+          type: string
     get:
       summary: Read a project
       responses:
@@ -35,6 +72,27 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
     put:
+      summary: Update a project
+      responses:
+        200:
+          description: The project corresponding to the provided `projectSlug`
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+        404:
+          description: No project found for the provided `projectSlug`
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        422:
+          description: Invalid or missing parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
       summary: Read a project
       responses:
         200:
@@ -55,33 +113,39 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-              
 components:
   schemas:
     projectSlug:
       description: The unique identifier of a project
       type: string
-    Spacecraft:
+    Project:
       type: object
       required:
         - id
-        - name
-        - type
+        - title
       properties:
-        id:
-          $ref: '#/components/schemas/SpacecraftId'
-        name:
+        title:
           type: string
-        type:
+        slug:
           type: string
-          enum:
-            - capsule
-            - probe
-            - satellite
-            - spaceplane
-            - station
+        technical_info:
+            type: string
         description:
           type: string
+        team:
+          type: string
+        download:
+          type: string
+        additional_info:
+          type: string
+        buy_link:
+          type: string
+        created_at:
+          type: timestamp
+        updated_at:
+         type: timestamp
+        uuid:
+          type: uuid
     Error:
       type: object
       required:
@@ -94,6 +158,6 @@ components:
     ApiKey:
       type: apiKey
       in: header
-      name: X-Api-Key
+      name: Authorization
 security:
   - ApiKey: []

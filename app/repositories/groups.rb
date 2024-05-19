@@ -6,11 +6,11 @@ module Backend
       commands :create, update: :by_pk, delete: :by_pk
 
       def all
-        grpups.order(:created_at).to_a.map(&:to_h)
+        groups.order(:title).to_a.map(&:to_h)
       end
 
-      def with_projects
-        groups.combine(:projects).to_a.map(&:to_h)
+      def with_aggregates(slug)
+        groups.combine(:projects).where(slug:).one.to_h
       end
     end
   end

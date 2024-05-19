@@ -10,6 +10,11 @@ SimpleCov.start do
   add_filter %r{^/spec/}
   add_filter '/config/app.rb'
   add_filter 'app/action.rb'
+  add_group 'Actions', 'app/actions'
+  add_group 'Controllers', 'app/controllers'
+  add_group 'Relations', 'lib/backend/persistence/relations'
+  add_group 'Repositories', 'app/repositories'
+  add_group 'Config', 'app/config'
 end
 SPEC_ROOT = Pathname(__dir__).realpath.freeze
 

@@ -21,7 +21,7 @@ module Backend
 
         def handle(request, _response)
           request.params[:article][:uuid] = generate_uuid
-          handle_server_error unless (article = repo.create(request.params[:article]))
+          article = repo.create(request.params[:article])
 
           handle_success(article.to_h, 201)
         end

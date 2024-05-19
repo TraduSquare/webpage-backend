@@ -17,7 +17,7 @@ RSpec.describe 'GET /', type: %i[request database] do
     end
     it 'Token de fuera de TS' do
       request_headers['HTTP_AUTHORIZATION'] =
-        'eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmFkdVNxdWFyZWEiLCJpYXQiOjE3MTU1MzA5OTgsImF1ZCI6Ind3dy5leGFtcGxlLmNvbSIsInN1YiI6ImpvZ3VlcnNhbkBnbWFpbC5jb20iLCJHaXZlbk5hbWUiOiJKb3JnZSIsIlN1cm5hbWUiOiJHdWVycmEiLCJFbWFpbCI6ImpvZ3VlcnNhbkBnbWFpbC5jb20iLCJSb2xlcyI6WyJSZWFkIiwiV3JpdGUiXX0.HyxVbLHQ3lc6kzpK7rnwDkuVZjHUbPXTUYrk_OYut3k'
+        'eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmFkdVNxdWFyZWEiLCJpYXQiOjE3MTYxNDUxMjMsImF1ZCI6Ind3dy5leGFtcGxlLmNvbSIsInN1YiI6ImpvZ3VlcnNhbkBnbWFpbC5jb20iLCJHaXZlbk5hbWUiOiJKb3JnZSIsIlN1cm5hbWUiOiJHdWVycmEiLCJFbWFpbCI6ImpvZ3VlcnNhbkBnbWFpbC5jb20iLCJSb2xlcyI6WyJSZWFkIl19.nFStoYSN-ma_HGbhWRG1hcFF2AHBMijgkwrYyh8BXV0'
       get '/', nil, request_headers
       expect(JSON.parse(last_response.body)['message']).to eq('No se ha podido autorizar la llamada. Token no emitido por TraduSquare.')
     end

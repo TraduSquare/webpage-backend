@@ -6,8 +6,7 @@ module Backend
       class Index < Backend::Action
         include Deps[repo: 'repositories.groups']
 
-        def handle(_request, response)
-          response.format = :json
+        def handle(_request, _response)
           handle_success(repo.all)
         end
       end

@@ -8,8 +8,7 @@ module Backend
 
         before :authenticate_call
 
-        def handle(*, response)
-          response.format = :json
+        def handle(_request, _response)
           handle_success(repo.all)
         end
       end

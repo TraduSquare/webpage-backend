@@ -13,7 +13,7 @@ module Backend
         end
 
         def handle(request, _response)
-          handle_not_found('Plataforma') unless (platform = repo.where(slug: request.params[:slug]).one)
+          handle_not_found('Plataforma') unless (platform = repo.find(slug: request.params[:slug]))
 
           handle_success(platform)
         end

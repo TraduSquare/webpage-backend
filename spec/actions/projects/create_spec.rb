@@ -29,9 +29,21 @@ RSpec.describe 'POST /projects', type: %i[request database] do
     end
   end
 
-  context 'given invalid params' do
+  context 'given nil params' do
     let(:params) do
       { project: { title: nil, slug: nil, description: nil } }
+    end
+
+    it 'returns 422 unprocessable' do
+      post '/projects', params.to_json, request_headers
+
+      expect(last_response).to be_unprocessable
+    end
+  end
+
+  context 'given invalid params' do
+    let(:params) do
+      { project: { title: 1, slug: 'aaaaa', description: 'bbbbb' } }
     end
 
     it 'returns 422 unprocessable' do

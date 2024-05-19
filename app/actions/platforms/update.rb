@@ -10,7 +10,11 @@ module Backend
 
         params do
           required(:id).value(:integer)
-          required(:platform).hash
+          required(:platform).hash do
+            required(:title).filled(:string)
+            required(:slug).filled(:string)
+            optional(:image_url).filled(:string)
+          end
         end
 
         def handle(request, _response)

@@ -699,7 +699,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://0.0.0.0:2300/platforms/muajajajajaj",
+							"raw": "http://0.0.0.0:2300/platforms/:platformSlug",
 							"protocol": "http",
 							"host": [
 								"0",
@@ -710,7 +710,13 @@
 							"port": "2300",
 							"path": [
 								"platforms",
-								"muajajajajaj"
+								":platformSlug"
+							],
+							"variable": [
+								{
+									"key": "platformSlug",
+									"value": "muajajajajaj"
+								}
 							]
 						}
 					},
@@ -1076,7 +1082,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"first_name\": \"Jorge\",\n    \"last_name\": \"Guerra\",\n    \"email\": \"joguersan@gmail.com\",\n    \"roles\": [\"\"]\n}",
+							"raw": "{\n    \"first_name\": \"Jorge\",\n    \"last_name\": \"Guerra\",\n    \"email\": \"joguersan@gmail.com\",\n    \"roles\": [\"Read\"]\n}",
 							"options": {
 								"raw": {
 									"language": "json"

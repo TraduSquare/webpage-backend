@@ -3,3 +3,7 @@
 log/
 coverage/
 Gemfile.lock
+
+bin/
+obj/
+.vs/

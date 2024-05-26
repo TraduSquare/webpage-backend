@@ -24,9 +24,10 @@ public class ProjectHandler
         
     }
 
-    public async Task<IEnumerable<CreateProjectResponse>> GetAll()
+    public async Task<IndexProjectResponse?> GetAll()
     {
-        throw new NotImplementedException();
+        var request = new RestRequest("/projects", Method.Get);
+        return await client.GetAsync<IndexProjectResponse?>(request);
     }
 
     public async Task<CreateProjectResponse?> Get(string projectUrl)

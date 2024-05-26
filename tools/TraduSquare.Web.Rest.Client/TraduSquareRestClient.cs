@@ -1,6 +1,7 @@
 ﻿namespace TraduSquare.Web.Rest.Client;
 
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using RestSharp;
 using RestSharp.Serializers.Json;
 
@@ -12,6 +13,7 @@ public class TraduSquareRestClient
 
         var jsonOptions = new JsonSerializerOptions {
             PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower,
+            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
         };
         var client = new RestClient(
             options,

@@ -1,6 +1,12 @@
 ﻿namespace TraduSquare.Web.Rest.Projects;
 
-public record CreateProjectResponse
+using System.Collections.ObjectModel;
+
+public class IndexProjectResponse : Collection<IndexProjectInfo>
+{
+}
+
+public record IndexProjectInfo
 {
     public int Id { get; set; } = -1;
     public string Title { get; set; } = string.Empty;

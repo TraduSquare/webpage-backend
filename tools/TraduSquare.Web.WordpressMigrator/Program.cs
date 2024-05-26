@@ -14,12 +14,17 @@ var projectInfo = new CreateProjectRequest {
         Description = "Cool game",
     },
 };
-CreateProjectResponse? response = await client.Projects.CreateAsync(projectInfo);
+CreateProjectResponse response = await client.Projects.CreateAsync(projectInfo);
 Console.WriteLine(response);
 
 Console.WriteLine();
+Console.WriteLine("Retrieving created project");
+GetProjectResponse projectCreated = await client.Projects.Get(projectInfo.Project.Slug);
+Console.WriteLine(projectCreated);
+
+Console.WriteLine();
 Console.WriteLine("Retrieving all projects...");
-IndexProjectResponse? projects = await client.Projects.GetAll();
-foreach (IndexProjectInfo project in projects ?? []) {
+IndexProjectResponse projects = await client.Projects.GetAll();
+foreach (IndexProjectInfo project in projects) {
     Console.WriteLine("  - [{0}] {1} ({2})", project.Id, project.Title, project.Slug);
 }

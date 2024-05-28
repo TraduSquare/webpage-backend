@@ -1,30 +1,58 @@
-﻿using TraduSquare.Web.Rest.Client;
+﻿using System.Diagnostics;
+using TraduSquare.Web.Rest.Client;
 using TraduSquare.Web.Rest.Projects;
+using TraduSquare.Web.WordpressMigrator.Wrx;
 
-Console.WriteLine("Initializing client");
-const string Token = "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmFkdVNxdWFyZSIsImlhdCI6MTcxNjU4NjU3MiwiYXVkIjoid3d3LmV4YW1wbGUuY29tIiwic3ViIjoiam9ndWVyc2FuQGdtYWlsLmNvbSIsIkdpdmVuTmFtZSI6IkpvcmdlIiwiU3VybmFtZSI6Ikd1ZXJyYSIsIkVtYWlsIjoiam9ndWVyc2FuQGdtYWlsLmNvbSIsIlJvbGVzIjpbIlJlYWQiLCJXcml0ZSJdfQ.qjZDtWWlNBKVtTcHI4gsqdeTlgyYsV1MXZsVOiwH5sU";
-var client = new TraduSquareRestClient("http://localhost:2300", Token);
-
-Console.WriteLine();
-Console.WriteLine("Creating new project");
-var projectInfo = new CreateProjectRequest {
-    Project = new CreateProjectInfo {
-        Title = "Pokémon Conqueset",
-        Slug = "pokemon-conquest",
-        Description = "Cool game",
-    },
-};
-CreateProjectResponse response = await client.Projects.CreateAsync(projectInfo);
-Console.WriteLine(response);
-
-Console.WriteLine();
-Console.WriteLine("Retrieving created project");
-GetProjectResponse projectCreated = await client.Projects.Get(projectInfo.Project.Slug);
-Console.WriteLine(projectCreated);
-
-Console.WriteLine();
-Console.WriteLine("Retrieving all projects...");
-IndexProjectResponse projects = await client.Projects.GetAll();
-foreach (IndexProjectInfo project in projects) {
-    Console.WriteLine("  - [{0}] {1} ({2})", project.Id, project.Title, project.Slug);
+if (args.Length != 1 || !File.Exists(args[0])) {
+    Console.Error.WriteLine("Missing argument or file does not exist");
+    Console.Error.WriteLine("USAGE: WordpressMigrator.exe <WRX_PATH>");
+    Environment.Exit(1);
 }
+
+string wordpressXmlPath = args[0];
+
+string? token = Environment.GetEnvironmentVariable("TS_CLIENT_TOKEN");
+if (string.IsNullOrEmpty(token)) {
+    Console.Error.WriteLine("Missing token for the backend client.");
+    Console.Error.WriteLine("Ensure the environment variable TS_CLIENT_TOKEN is set");
+    Environment.Exit(2);
+}
+
+var client = new TraduSquareRestClient("http://localhost:2300", token);
+var parser = new WrxTraduSquareProjectParser(wordpressXmlPath);
+
+Stopwatch timer = Stopwatch.StartNew();
+foreach (var info in parser.GetProjects()) {
+    if (info.PostStatus == "draft") {
+        Console.WriteLine("- Skipping draft for '{0}'", info.Title);
+        continue;
+    }
+
+    if (string.IsNullOrEmpty(info.Slug) || string.IsNullOrEmpty(info.Title)) {
+        Console.WriteLine("- Missing title and/or slug for: {0}", info);
+        continue;
+    }
+
+    Console.WriteLine("- Creating project: '{0}'", info.Title);
+    var projectRequest = new CreateProjectRequest {
+        Project = new CreateProjectInfo {
+            Title = info.Title,
+            Slug = info.Slug,
+            AdditionalInfo = info.AdditionalInfo,
+            BuyLink = info.BuyInfo,
+            Description = info.Synopsis,
+            Download = info.PatchDownloadInfo,
+            Team = info.Team,
+            TechnicalInfo = info.CardInfo,
+        },
+    };
+
+    try {
+        await client.Projects.CreateAsync(projectRequest);
+    } catch (Exception ex) {
+        Console.WriteLine("  - Failed to create {0} with error {1}", info.Title, ex.Message);
+    }
+}
+
+timer.Stop();
+Console.WriteLine("Done! {0}", timer.Elapsed);

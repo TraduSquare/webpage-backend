@@ -17,6 +17,26 @@ public class ProjectHandler
 
     public async Task<CreateProjectResponse> CreateAsync(CreateProjectRequest project)
     {
+        // The backend doesn't like empty values
+        if (string.IsNullOrEmpty(project.Project.TechnicalInfo)) {
+            project.Project.TechnicalInfo = null;
+        }
+        if (string.IsNullOrEmpty(project.Project.Team)) {
+            project.Project.Team = null;
+        }
+        if (string.IsNullOrEmpty(project.Project.Description)) {
+            project.Project.Description = null;
+        }
+        if (string.IsNullOrEmpty(project.Project.AdditionalInfo)) {
+            project.Project.AdditionalInfo = null;
+        }
+        if (string.IsNullOrEmpty(project.Project.BuyLink)) {
+            project.Project.BuyLink = null;
+        }
+        if (string.IsNullOrEmpty(project.Project.Download)) {
+            project.Project.Download = null;
+        }
+
         var request = new RestRequest("/projects", Method.Post)
             .AddJsonBody(project)
             .AddOrUpdateHeader("content-type", "application/json");

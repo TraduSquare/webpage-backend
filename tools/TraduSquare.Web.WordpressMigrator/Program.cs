@@ -3,13 +3,21 @@ using TraduSquare.Web.Rest.Client;
 using TraduSquare.Web.Rest.Projects;
 using TraduSquare.Web.WordpressMigrator.Wrx;
 
-if (args.Length != 1 || !File.Exists(args[0])) {
-    Console.Error.WriteLine("Missing argument or file does not exist");
-    Console.Error.WriteLine("USAGE: WordpressMigrator.exe <WRX_PATH>");
+if (args.Length < 1) {
+    Console.Error.WriteLine("Missing host argument");
+    Console.Error.WriteLine("USAGE: WordpressMigrator.exe <host:port> <WRX_PATH>");
     Environment.Exit(1);
 }
 
-string wordpressXmlPath = args[0];
+string backendHost = args[0];
+
+if (args.Length < 2 || !File.Exists(args[1])) {
+    Console.Error.WriteLine("Missing argument or file does not exist");
+    Console.Error.WriteLine("USAGE: WordpressMigrator.exe <host:port> <WRX_PATH>");
+    Environment.Exit(1);
+}
+
+string wordpressXmlPath = args[1];
 
 string? token = Environment.GetEnvironmentVariable("TS_CLIENT_TOKEN");
 if (string.IsNullOrEmpty(token)) {
@@ -18,7 +26,7 @@ if (string.IsNullOrEmpty(token)) {
     Environment.Exit(2);
 }
 
-var client = new TraduSquareRestClient("http://localhost:2300", token);
+var client = new TraduSquareRestClient(backendHost, token);
 var parser = new WrxTraduSquareProjectParser(wordpressXmlPath);
 
 Stopwatch timer = Stopwatch.StartNew();

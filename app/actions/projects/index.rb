@@ -6,8 +6,6 @@ module Backend
       class Index < Backend::Action
         include Deps[projects: 'repositories.projects']
 
-        before :authenticate_call
-
         def handle(_request, response)
           response.format = :json
           handle_success(projects.all)

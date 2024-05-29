@@ -8,6 +8,7 @@ module Backend
             belongs_to :images
           end
         end
+        auto_struct(true)
       end
     end
   end

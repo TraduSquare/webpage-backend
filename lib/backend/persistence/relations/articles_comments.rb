@@ -8,6 +8,7 @@ module Backend
             belongs_to :comments, on_delete: :cascade
           end
         end
+        auto_struct(true)
       end
     end
   end

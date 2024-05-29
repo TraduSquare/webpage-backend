@@ -9,13 +9,14 @@ module Backend
             has_many :images_projects
             has_many :platforms_projects
             has_many :missions_projects
-            many_to_many :articles, through: :articles_projects
-            many_to_many :groups, through: :groups_projects
-            many_to_many :images, through: :images_projects
-            many_to_many :missions, through: :missions_projects
-            many_to_many :platforms, through: :platforms_projects
+            has_many :articles, through: :articles_projects
+            has_many :groups, through: :groups_projects
+            has_many :images, through: :images_projects
+            has_many :missions, through: :missions_projects
+            has_many :platforms, through: :platforms_projects
           end
         end
+        auto_struct(true)
       end
     end
   end

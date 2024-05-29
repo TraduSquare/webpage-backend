@@ -19,12 +19,15 @@ module Backend
             optional(:additional_info).filled(:string)
             optional(:buy_link).filled(:string)
             optional(:uuid).filled(:string)
+            optional(:groups_projects).filled(:array)
+            optional(:articles_projects).filled(:array)
+            optional(:platforms_projects).filled(:array)
           end
         end
 
         def handle(request, _response)
           request.params[:project][:uuid] = generate_uuid
-          project = repo.create(request.params[:project])
+          project = repo.create_with_aggregates(request.params[:project])
 
           handle_success(project.to_h, 201)
         end

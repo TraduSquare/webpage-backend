@@ -5,10 +5,10 @@ module Backend
         schema(:comments, infer: true) do
           associations do
             has_many :articles_comments
-
-            many_to_many :articles, through: :articles_comments
+            has_many :articles, through: :articles_comments
           end
         end
+        auto_struct(true)
       end
     end
   end

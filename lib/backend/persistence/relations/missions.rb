@@ -5,9 +5,10 @@ module Backend
         schema(:missions, infer: true) do
           associations do
             has_many :missions_projects
-            many_to_many :projects, through: :missions_projects
+            has_many :projects, through: :missions_projects
           end
         end
+        auto_struct(true)
       end
     end
   end

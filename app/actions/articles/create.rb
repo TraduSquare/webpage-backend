@@ -16,12 +16,13 @@ module Backend
             required(:content).filled(:string)
             required(:featured_image).filled(:string)
             optional(:uuid).filled(:string)
+            optional(:articles_projects).filled(:array)
           end
         end
 
         def handle(request, _response)
           request.params[:article][:uuid] = generate_uuid
-          article = repo.create(request.params[:article])
+          article = repo.create_with_aggregates(request.params[:article])
 
           handle_success(article.to_h, 201)
         end

@@ -14,12 +14,12 @@ module Backend
       end
 
       def create_with_aggregates(project)
-        relations = [:groups_projects, :articles_projects, :platforms_projects, :missions_projects]
+        relations = [:groups_projects, :platforms_projects]
         query = projects
         relations.each do |x|
           query = query.combine(x) if project&.[](x)&.size&.positive?
         end
-        query = query.command(:create).call(project)
+        query.command(:create).call(project)
       end
     end
   end

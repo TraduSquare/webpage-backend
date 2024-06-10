@@ -20,9 +20,7 @@ module Backend
             optional(:buy_link).filled(:string)
             optional(:uuid).filled(:string)
             optional(:groups_projects).filled(:array)
-            optional(:articles_projects).filled(:array)
             optional(:platforms_projects).filled(:array)
-            optional(:missions_projects).filled(:array)
           end
         end
 

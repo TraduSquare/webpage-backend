@@ -35,13 +35,10 @@ group :development do
   gem 'bullet'
   gem 'guard-puma', '~> 0.8'
   gem 'rubocop'
-  gem 'hanami-webconsole'
-  gem "hanami-reloader"
 end
 
 group :test do
   gem 'database_cleaner-sequel'
   gem 'rack-test'
-  gem 'capybara', require: false
   gem 'simplecov', require: false
 end

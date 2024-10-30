@@ -20,8 +20,8 @@ GEM
       rack (>= 0.9.0)
       rouge (>= 1.0.0)
     bigdecimal (3.1.6)
-    binding_of_caller (0.8.0)
-      debug_inspector (>= 0.0.1)
+    binding_of_caller (1.0.1)
+      debug_inspector (>= 1.2.0)
     bullet (7.1.6)
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.11)
@@ -167,9 +167,9 @@ GEM
     hanami-validations (2.1.0)
       dry-validation (>= 1.10, < 2)
       zeitwerk (~> 2.6.0)
-    hanami-webconsole (0.1.0)
-      better_errors (~> 2.4)
-      binding_of_caller (~> 0.8)
+    hanami-webconsole (2.2.0.rc1)
+      better_errors (~> 2.10, >= 2.10.1)
+      binding_of_caller (~> 1.0)
     hansi (0.2.1)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
@@ -317,7 +317,7 @@ DEPENDENCIES
   hanami-router (~> 2.1)
   hanami-rspec
   hanami-validations (~> 2.1)
-  hanami-webconsole
+  hanami-webconsole (= 2.2.0.rc1)
   jwt
   pg
   puma

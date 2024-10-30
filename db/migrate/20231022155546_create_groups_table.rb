@@ -16,6 +16,11 @@ ROM::SQL.migration do
       column :created_at, DateTime
       column :updated_at, DateTime
     end
-    create_join_table(project_id: :projects, group_id: :groups)
+    create_table :groups_projects do
+      foreign_key :group_id, :groups, on_delete: :cascade
+      foreign_key :project_id, :projects, on_delete: :cascade
+      primary_key [:group_id, :project_id]
+      index [:project_id, :group_id]
+    end
   end
 end

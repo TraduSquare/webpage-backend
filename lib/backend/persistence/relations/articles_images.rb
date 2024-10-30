@@ -4,8 +4,8 @@ module Backend
       class ArticlesImages < ROM::Relation[:sql]
         schema(:articles_images, infer: true) do
           associations do
-            belongs_to :articles, on_delete: :cascade
-            belongs_to :images, on_delete: :cascade
+            belongs_to :articles
+            belongs_to :images
           end
         end
         auto_struct(true)

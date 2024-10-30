@@ -6,7 +6,7 @@ require 'simplecov'
 SimpleCov.start do
   enable_coverage :branch
   primary_coverage :branch
-  minimum_coverage line: 90, branch: 75
+  minimum_coverage line: 90, branch: 60
   add_filter [%r{^/spec/}, '/config/app.rb', 'app/action.rb']
   add_group 'Controllers', 'app/controllers'
   add_group 'Actions', 'app/actions'

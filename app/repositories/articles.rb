@@ -14,12 +14,23 @@ module Backend
       end
 
       def create_with_aggregates(article)
-        relations = [:articles_projects]
-        query = articles
+        relations = %i[articles_projects]
         relations.each do |x|
-          query = query.articles.combine(x) if article&.[](x)&.size&.positive?
+          next if article[x].nil? || article[x].empty? 
+
+          articles = articles.combine(x)
         end
-        query.command(:create).call(article)
+        articles.command(:create).call(article)
+      end
+
+      def update_with_aggregates(article)
+        relations = %i[articles_projects]
+        relations.each do |x|
+          next if article[x].nil? || article[x].empty? 
+
+          articles = articles.combine(x)
+        end
+        articles.command(:update).call(article)
       end
     end
   end

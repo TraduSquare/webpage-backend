@@ -12,7 +12,8 @@ RSpec.describe 'POST /articles', type: %i[request database] do
                    slug: 'muajajajajaj',
                    description: 'a',
                    content: 'AAAAAAAAAA',
-                   featured_image: 'https://test.es' } }
+                   featured_image: 'https://test.es',
+                   articles_projects: [] } }
     end
 
     it 'creates a article' do

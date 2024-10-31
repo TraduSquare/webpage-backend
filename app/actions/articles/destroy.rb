@@ -3,6 +3,7 @@
 module Backend
   module Actions
     module Articles
+      # Class to create articles object. It includes params validation and handle method
       class Destroy < Backend::Action
         include Deps[repo: 'repositories.articles']
 

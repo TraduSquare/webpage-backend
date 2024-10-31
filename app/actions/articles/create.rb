@@ -16,7 +16,7 @@ module Backend
             required(:content).filled(:string)
             required(:featured_image).filled(:string)
             optional(:uuid).filled(:string)
-            optional(:articles_projects).filled(:array)
+            optional(:articles_projects)
           end
         end
 

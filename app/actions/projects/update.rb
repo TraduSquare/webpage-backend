@@ -10,7 +10,20 @@ module Backend
 
         params do
           required(:id).value(:integer)
-          required(:project).hash
+          required(:project).hash do
+            required(:title).filled(:string)
+            required(:slug).filled(:string)
+            optional(:technical_info).filled(:string)
+            optional(:decription).filled(:string)
+            optional(:team).filled(:string)
+            optional(:download).filled(:string)
+            optional(:additional_info).filled(:string)
+            optional(:buy_link).filled(:string)
+            optional(:uuid).filled(:string)
+            optional(:groups_projects)
+            optional(:platforms_projects)
+            optional(:missions_projects)
+          end
         end
 
         def handle(request, _response)

@@ -9,7 +9,10 @@ RSpec.describe 'POST /projects', type: %i[request database] do
     let(:params) do
       { project: { title: 'MUAJAJAJAJA3',
                    slug: 'muajajajajaj',
-                   description: 'a' } }
+                   description: 'a',
+                   groups_projects: [],
+                   platforms_projects: [],
+                   missions_projects: nil } }
     end
 
     it 'creates a project' do

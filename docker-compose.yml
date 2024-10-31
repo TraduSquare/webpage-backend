@@ -5,7 +5,7 @@ volumes:
   postgres-data:
 services:
   db:
-    image: postgres:16.2-alpine
+    image: postgres:16.4-alpine
     networks:
       - tradusquare
     volumes:
@@ -25,8 +25,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.app  
-      args:
-        - RUBY_VERSION=${RUBY_VERSION:-3.3.1}
     networks:
       - tradusquare
     volumes:

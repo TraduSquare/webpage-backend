@@ -17,7 +17,13 @@
 					},
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\"project\": {\n    \"title\": \"proyecto_prueba\",\n    \"slug\": \"proyecto_prueba\",\n    \"description\": \"proyecto_prueba\"\n}}",
@@ -52,7 +58,13 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\"project\": {\n    \"title\": \"MUAJAJAJAJA3\",\n    \"slug\": \"muajajajajaj\",\n    \"description\": \"a\"\n}}",
@@ -94,7 +106,13 @@
 					},
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\"project\": {\n    \"title\": \"MUAJAJAJAJA3\",\n    \"slug\": \"muajajajajaj\",\n    \"description\": \"a\"\n}}",
@@ -136,7 +154,13 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\"project\": {\n    \"title\": \"proyecto_prueba\",\n    \"slug\": \"proyecto_prueba\",\n    \"description\": \"proyecto_prueba\"\n}}",
@@ -178,7 +202,13 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\"project\": {\n    \"title\": \"proyecto_prueba\",\n    \"slug\": \"proyecto_prueba\",\n    \"description\": \"proyecto_prueba\"\n}}",
@@ -219,7 +249,13 @@
 					},
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\"comment\": {\n    \"title\": \"MUAJAJAJAJA3\",\n    \"slug\": \"muajajajajaj\",\n    \"description\": \"a\"\n}}",
@@ -254,7 +290,13 @@
 					},
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\"project\": {\n    \"title\": \"MUAJAJAJAJA3\",\n    \"slug\": \"muajajajajaj\",\n    \"description\": \"a\"\n}}",
@@ -290,7 +332,13 @@
 					},
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\"project\": {\n    \"title\": \"MUAJAJAJAJA3\",\n    \"slug\": \"muajajajajaj\",\n    \"description\": \"a\"\n}}",
@@ -326,7 +374,13 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\"project\": {\n    \"title\": \"MUAJAJAJAJA3\",\n    \"slug\": \"muajajajajaj\",\n    \"description\": \"a\"\n}}",
@@ -362,7 +416,13 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\"project\": {\n    \"title\": \"MUAJAJAJAJA3\",\n    \"slug\": \"muajajajajaj\",\n    \"description\": \"a\"\n}}",
@@ -403,7 +463,13 @@
 					},
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\"article\": {\n    \"title\": \"MUAJAJAJAJA3\",\n    \"slug\": \"muajajajajaj\",\n    \"content\": \"a\",\n    \"featured_image\": \"https://tradusquare.es\"\n}}",
@@ -438,7 +504,13 @@
 					},
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\"article\": {\n    \"title\": \"MUAJAJAJAJA3\",\n    \"slug\": \"muajajajajaj\",\n    \"content\": \"a\",\n    \"featured_image\": \"https://tradusquare.es\",\n    \"created_at\": \"2024-02-01\"\n}}",
@@ -480,7 +552,13 @@
 					},
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\"project\": {\n    \"title\": \"MUAJAJAJAJA3\",\n    \"slug\": \"muajajajajaj\",\n    \"description\": \"a\"\n}}",
@@ -516,7 +594,13 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "",
@@ -558,7 +642,13 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "",
@@ -599,7 +689,13 @@
 					},
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\"platform\": {\n    \"title\": \"MUAJAJAJAJA3\",\n    \"slug\": \"muajajajajaj\",\n    \"image_url\": \"https://tradusquare.es\"\n}}",
@@ -634,7 +730,13 @@
 					},
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\"platform\": {\n    \"title\": \"MUAJAJAJAJA3\",\n    \"slug\": \"muajajajajaj\",\n    \"image_url\": \"https://tradusquare.es\"\n}}",
@@ -670,7 +772,13 @@
 					},
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "http://0.0.0.0:2300/platforms/1",
 							"protocol": "http",
@@ -697,7 +805,13 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "http://0.0.0.0:2300/platforms/:platformSlug",
 							"protocol": "http",
@@ -730,7 +844,13 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "http://0.0.0.0:2300/platforms",
 							"protocol": "http",
@@ -1115,7 +1235,13 @@
 					},
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"first_name\": \"Jorge\",\n    \"last_name\": \"Guerra\",\n    \"email\": \"joguersan@gmail.com\",\n    \"roles\": [\n        \"Read\",\n        \"Write\"\n    ]\n}",
@@ -1148,16 +1274,41 @@
 		}
 	],
 	"auth": {
-		"type": "oauth2",
-		"oauth2": [
+		"type": "jwt",
+		"jwt": [
 			{
-				"key": "headerPrefix",
-				"value": "",
+				"key": "algorithm",
+				"value": "HS256",
+				"type": "string"
+			},
+			{
+				"key": "isSecretBase64Encoded",
+				"value": false,
+				"type": "boolean"
+			},
+			{
+				"key": "payload",
+				"value": "{}",
 				"type": "string"
 			},
 			{
 				"key": "addTokenTo",
 				"value": "header",
+				"type": "string"
+			},
+			{
+				"key": "headerPrefix",
+				"value": "Bearer",
+				"type": "string"
+			},
+			{
+				"key": "queryParamKey",
+				"value": "token",
+				"type": "string"
+			},
+			{
+				"key": "header",
+				"value": "{}",
 				"type": "string"
 			}
 		]
@@ -1166,7 +1317,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "68fa231b-b0a9-4ca3-8419-8c814dd77c64",
+				"id": "ec473def-6bee-495f-8819-6dfe7a61236c",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1176,20 +1327,12 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "2d32c655-afab-4da8-a049-7d3a7fe8ff27",
+				"id": "ceb60584-d69d-46f3-8a25-cb3745204fa7",
 				"type": "text/javascript",
 				"exec": [
 					""
 				]
 			}
-		}
-	],
-	"variable": [
-		{
-			"id": "cdc169c7-c577-41b1-b4cd-0d3768f43c16",
-			"key": "jwt_token",
-			"value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUcmFkdVNxdWFyZSIsImlhdCI6MTcwODI2MjMxMiwiYXVkIjoid3d3LmV4YW1wbGUuY29tIiwic3ViIjoiam9ndWVyc2FuQGdtYWlsLmNvbSIsIkdpdmVuTmFtZSI6IkpvcmdlIiwiU3VybmFtZSI6Ikd1ZXJyYSIsIkVtYWlsIjoiam9ndWVyc2FuQGdtYWlsLmNvbSIsIlJvbGUiOlsiUmVhZCIsIldyaXRlIl19.7bT5a_GQ8auRSePiXkYVG2vuRcAvc4vDZW6eeQaYbCI",
-			"type": "string"
 		}
 	]
 }

@@ -43,11 +43,14 @@ Open a Terminal (CMD in Windows) in the
 - Postgres 16 (Follow this [link for Windows](https://www.postgresql.org/download/windows/) and [this one for Linux](https://www.postgresql.org/download/linux/)
 
 ##### 2a. Create Postgres Databases
-Follow [this link for instructions](https://www.postgresql.org/docs/current/sql-createdatabase.html) on how to create Postgres Databases
+Follow [this link for instructions](https://www.postgresql.org/docs/current/sql-createdatabase.html) on how to create Postgres Databases. Two databases must be created, backend_development and backend_test, one for each development environment.
 ### 3 Download the repo
 1. Clone this repository in your machine.
  (In the future, every version merged in the development branch will generates artifacts that can be downloaded directly from github. Additionally, master branch's merges will generate new stable versions with the same purpose.)
-### 4. Create .env and .env.test files  
+### 4. Create .env and .env.test files
+These files must include a line specificating the database used for each environment.
+EX: ```DATABASE_URL=postgres://{user}:{password}@db:5432/{database}```
+Change user, password and database variables with your database data.
 ### 5. Run the server
 1. Go to the cloned folder in your system.
 2. Open a terminal (CMD in Windows)
@@ -59,7 +62,7 @@ Follow [this link for instructions](https://www.postgresql.org/docs/current/sql-
      2. ```hanami db migrate``` (this will create the database tables and populate them)
      3. ```hanami server``` 
 ### Endpoints and API Usage
-Once launched, the server will run on ```0.0.0.0:2300```` address and all the REQUESTS must be directed there.
+Once launched, the server will run on ```0.0.0.0:2300``` address and all the REQUESTS must be directed there.
 Postman API documentation.
 - API Sign Up Endpoint: you get the token
 - API Login Endpoint: you login with your generated token

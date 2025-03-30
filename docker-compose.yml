@@ -9,7 +9,8 @@ services:
     networks:
       - tradusquare
     volumes:
-      - postgres-data:/var/lib/postgresql/data
+      - postgres-data:/var/lib/postgresql/
+      - ./init-db:/docker-entrypoint-initdb.d
     ports:
       - '5432:5432'
     env_file: .env

@@ -13,6 +13,8 @@ gem 'rom-sql', '~> 3.6'
 
 gem 'dry-types', '~> 1.0', '>= 1.6.1'
 gem 'jwt'
+gem 'logger'
+gem 'ostruct'
 gem 'puma'
 gem 'rack-cors'
 gem 'rake'
